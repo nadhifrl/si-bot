@@ -19,15 +19,15 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" >
             <div class="container">
-            <div style="font-family: Brush Script MT"> <a class="navbar-brand js-scroll-trigger" href="/pengunjung" ><img src="img/Logo-Botani-1.png" width="80px" height:"80px" style="margin-left:-70px"></a></div>
+            <div style="font-family: Brush Script MT"> <a class="navbar-brand js-scroll-trigger" href="#page-top" ><img src="img/Logo-Botani-1.png" width="80px" height:"80px" style="margin-left:-70px"></a></div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto" >
-                    <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="/mana">Profil</a></li>
-                        <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="/mana">Informasi dan Sarana</a></li>
+                    <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="/profil">Profil</a></li>
+                        <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="">Informasi dan Sarana</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Beli Tiket</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Detail Tiket</a></li>
                         <li class="sidebar-nav-item">
@@ -102,7 +102,7 @@
         </section>
         <!-- Signup-->
         <section class="signup-section text-center" id="signup">
-        <h1 class="text-white mb-10" style="font-size:70px">TENTANG KAMI</h1>
+        <h1 class="text-white mb-10" style="font-size:70px">INFO TENTANG KAMI</h1>
         </section>
         <!-- Contact-->
         <section class="contact-section bg-black">

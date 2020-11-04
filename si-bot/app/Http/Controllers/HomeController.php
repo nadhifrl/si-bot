@@ -42,7 +42,5 @@ class HomeController extends Controller
         return view ('pengunjung.dashboardpengunjung');
     }
 
-    public function mana(){
-        return view ('pengunjung.mana');
-    }
+
 }

@@ -29,5 +29,5 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::get('/pengunjung', 'HomeController@pengunjung');
-    Route::get('/mana', 'HomeController@mana')->name('mana');
+    Route::get('/profil', 'profilPengunjungController@profil');
 });
