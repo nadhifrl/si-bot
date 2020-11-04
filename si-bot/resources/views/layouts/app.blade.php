@@ -25,7 +25,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 <div class="header__logo" style="margin-left:-80px;">
-                        <img src="img/Logo-Botani-1.png" width="80px" height:"80px" alt="">
+                <h1 style="font-family: Brush Script MT">Si-Bot</h1>
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
