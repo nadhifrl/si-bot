@@ -51,7 +51,7 @@
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase"><a href="#profil"> profil</a></h1>
+                    <h1 class="mx-auto my-0 text-uppercase"><a href="#tiket"> Tiket</a></h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
                 </div>
             </div>
@@ -59,37 +59,13 @@
         <!-- Projects-->
        
         <!-- Signup-->
-        <section class="projects-section bg-black" id="profil" >
+        <section class="projects-section bg-light" id="tiket" >
             <div class="container" >
                 <!-- Featured Project Row-->
                 
                 <!-- Project One Row-->
                 <div class="row justify-content-center no-gutters ">
-                <div class="col-md-10 col-lg-8 mx-auto">
-                        <div class="card bg-white">
-                            <div class="card-header mb-0"><h5 class="text-center font-weight-bold text-primary">Your Profile<span class="font-weight-bold text-primary"> Account</span></h5></div>
-                                <div class="card-body">
-                        <form>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Username</label>
-                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->name}}</label>
-                            </div>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Email</label>
-                                <label class="form-control form-group font-weight-bold text-primary "> {{$user->email}}</label>
-                            </div>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Alamat</label>
-                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->alamat}}</label>
-                            </div>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Nomor Telepon</label>
-                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->nomortelepon}}</label>
-                            </div>
-                           
-                        </form>
-                    </div>
-                </div>
+                
                 </div>
                 <!-- Project Two Row-->
                

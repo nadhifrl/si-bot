@@ -19,7 +19,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" >
             <div class="container">
-            <div style="font-family: Brush Script MT"> <a class="navbar-brand js-scroll-trigger" href="#page-top" ><img src="img/Logo-Botani-1.png" width="80px" height:"80px" style="margin-left:-70px"></a></div>
+            <div style="font-family: Brush Script MT"> <a class="navbar-brand js-scroll-trigger" href="#projects" ><img src="img/Logo-Botani-1.png" width="80px" height:"80px" style="margin-left:-70px"></a></div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -51,7 +51,7 @@
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">taman botani</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="#about">Beli Tiket</a>
+                    <a class="btn btn-primary js-scroll-trigger" href="/tiket">Beli Tiket</a>
                 </div>
             </div>
         </header>
