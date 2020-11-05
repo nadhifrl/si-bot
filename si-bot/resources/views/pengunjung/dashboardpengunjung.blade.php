@@ -28,7 +28,7 @@
                     <ul class="navbar-nav ml-auto" >
                     <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="/profil">Profil</a></li>
                         <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="">Informasi dan Sarana</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Beli Tiket</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/tiket">Tiket</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Detail Tiket</a></li>
                         <li class="sidebar-nav-item">
         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"

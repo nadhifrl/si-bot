@@ -29,5 +29,7 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::get('/pengunjung', 'HomeController@pengunjung');
+    Route::get('/tiket', 'HomeController@tiket');
     Route::get('/profil', 'profilPengunjungController@profil');
+    
 });
