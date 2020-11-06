@@ -42,8 +42,12 @@ class HomeController extends Controller
         return view ('pengunjung.dashboardpengunjung');
     }
 
-    public function tiket(){
-        return view ('pengunjung.tiket');
+    public function pemesanantiket(){
+        return view ('pengunjung.pemesanantiket');
+    }
+
+    public function pembayarantiket(){
+        return view ('pengunjung.pembayarantiket');
     }
 
 

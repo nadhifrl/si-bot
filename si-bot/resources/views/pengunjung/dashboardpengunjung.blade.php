@@ -14,6 +14,27 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="coba/css/styles.css" rel="stylesheet" />
+
+        <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 8px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -28,7 +49,15 @@
                     <ul class="navbar-nav ml-auto" >
                     <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="/profil">Profil</a></li>
                         <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="">Informasi dan Sarana</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/tiket">Tiket</a></li>
+                        <div class="dropdown">
+<li class="nav-item"><a class="nav-link js-scroll-trigger">Tiket</a></li>
+  <div class="dropdown-content">
+  <a href="/pemesanantiket">Pemesanan Tiket</a>
+  <hr>
+  <a href="/pembayarantiket">Pembayaran Tiket</a>
+  </div>
+</div>
+                        
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Detail Tiket</a></li>
                         <li class="sidebar-nav-item">
         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"
@@ -51,7 +80,7 @@
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">taman botani</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="/tiket">Beli Tiket</a>
+                    <a class="btn btn-primary js-scroll-trigger" href="/pemesanantiket">Pesan Tiket</a>
                 </div>
             </div>
         </header>
