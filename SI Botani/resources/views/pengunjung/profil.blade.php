@@ -58,7 +58,7 @@
   </div>
 </div>
                         
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Detail Tiket</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
                         <li class="sidebar-nav-item">
         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -75,61 +75,59 @@
             </div>
         </nav>
         <!-- Masthead-->
+       
+        <!-- About-->
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">taman botani</h1>
+                    <h1 class="mx-auto my-0 text-uppercase"><a href="#profil"> profil</a></h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="/pemesanantiket">Pesan Tiket</a>
                 </div>
             </div>
         </header>
-        <!-- About-->
-       
         <!-- Projects-->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container">
+       
+        <!-- Signup-->
+        <section class="projects-section bg-black" id="profil" >
+            <div class="container" >
                 <!-- Featured Project Row-->
-                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="coba/assets/img/botani-sukorambi.jpg" alt="" /></div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Taman Botani Sukorambi</h4>
-                            <p class="text-black-50 mb-0"> Taman rekreasi ini diberi nama Taman Botani Sukorambi dimana merupakan taman wisata alam terdekat dari kota Jember (sekitar 10 menit), dengan konsep Rekreasi sambil Belajar dengan luas sekitar 12 hektar, menyajikan aneka ragam koleksi tanaman, hewan, permainan dan wahana-wahana yang dapat dinikmati oleh pengunjung dari segala umur.</p>
-                        </div>
+                
+                <!-- Project One Row-->
+                <div class="row justify-content-center no-gutters ">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                        <div class="card bg-white">
+                            <div class="card-header mb-0"><h5 class="text-center font-weight-bold text-primary">Your Profile<span class="font-weight-bold text-primary"> Account</span></h5></div>
+                                <div class="card-body">
+                        <form>
+                            <div class="form-group font-weight-bold text-primary">
+                                <label>Username</label>
+                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->name}}</label>
+                            </div>
+                            <div class="form-group font-weight-bold text-primary">
+                                <label>Email</label>
+                                <label class="form-control form-group font-weight-bold text-primary "> {{$user->email}}</label>
+                            </div>
+                            <div class="form-group font-weight-bold text-primary">
+                                <label>Alamat</label>
+                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->alamat}}</label>
+                            </div>
+                            <div class="form-group font-weight-bold text-primary">
+                                <label>Nomor Telepon</label>
+                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->nomortelepon}}</label>
+                            </div>
+                           
+                        </form>
                     </div>
                 </div>
-                <!-- Project One Row-->
-                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6"><img class="img-fluid" src="coba/assets/img/kumpulan.jpg" alt="" /></div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white"><a href=""> Aneka Macam Wisata Yang Terdapat Di Taman Botani</a></h4>
-                                    <hr class="d-none d-lg-block mb-0 ml-0" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                </div>
                 </div>
                 <!-- Project Two Row-->
-                <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.399715715947!2d113.66085758545013!3d-8.16242199412484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6938b73a5abf7%3A0x1f02ba93aedf2352!2sTaman%20Botani%20Sukorambi%20Jember!5e0!3m2!1sid!2sid!4v1604465488521!5m2!1sid!2sid" width="558" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white"><a href="https://goo.gl/maps/D7KcWq3RMt7kBqU69"> LOKASI TAMAN BOTANI SUKORAMBI</a></h4>
-                                    <hr class="d-none d-lg-block mb-0 mr-0" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+               
         </section>
-        <!-- Signup-->
+
+        
+        <!-- Footer-->
         <section class="signup-section text-center" id="signup">
         <h1 class="text-white mb-10" style="font-size:70px">INFO TENTANG KAMI</h1>
         </section>

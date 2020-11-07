@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="coba/css/styles.css" rel="stylesheet" />
+        
 
         <style>
 .dropdown {
@@ -58,7 +59,7 @@
   </div>
 </div>
                         
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Detail Tiket</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
                         <li class="sidebar-nav-item">
         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -80,7 +81,7 @@
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase"><a href="#profil"> profil</a></h1>
+                    <h1 class="mx-auto my-0 text-uppercase"><a href="#tiket">Detail Tiket</a></h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
                 </div>
             </div>
@@ -88,37 +89,63 @@
         <!-- Projects-->
        
         <!-- Signup-->
-        <section class="projects-section bg-black" id="profil" >
+        <section class="projects-section bg-black" id="tiket" >
             <div class="container" >
                 <!-- Featured Project Row-->
                 
                 <!-- Project One Row-->
-                <div class="row justify-content-center no-gutters ">
                 <div class="col-md-10 col-lg-8 mx-auto">
-                        <div class="card bg-white">
-                            <div class="card-header mb-0"><h5 class="text-center font-weight-bold text-primary">Your Profile<span class="font-weight-bold text-primary"> Account</span></h5></div>
-                                <div class="card-body">
-                        <form>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Username</label>
-                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->name}}</label>
+                <div class="card bg-white">
+                <div class="row justify-content-center no-gutters ">
+                <form method="POST" action="co_pem.php" enctype="multipart/form-data">
+						  <div class="col-lg-20 ftco-animate p-md-20">
+                          <h4 class="text-center font-weight-bold text-primary card-header" >Pesan Tiketmu (Harga Rp. 20.000,00)</h4>
+                          
+                            <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
+                            
+                            <div class="row align-items-end">
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">Nama</label>
+                            <input type="text" class="form-control" name="name" required >
                             </div>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Email</label>
-                                <label class="form-control form-group font-weight-bold text-primary "> {{$user->email}}</label>
                             </div>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Alamat</label>
-                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->alamat}}</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                <label for="total_pembayaran">Nomor telepon</label>
+                            <input type="number"  class="form-control"  >
                             </div>
-                            <div class="form-group font-weight-bold text-primary">
-                                <label>Nomor Telepon</label>
-                                <label class="form-control form-group font-weight-bold text-primary ">{{$user->nomortelepon}}</label>
                             </div>
+                            <div class="col-md-12">
+                                <p>Alamat</p>
+                            <input type="text"  class="form-control"  >
+                            </div>
+                            <div class="col-md-4" style="padding-top:10px">
+                                <div class="form-group" >
+                                <label >Tanggal Pembelian</label>
+                            <input type="date"  class="form-control"  >
+                            </div>
+                            <div class="col-md-17">
+                                <div class="form-group" >
+                                <label >Jumlah Tiket</label>
+                            <input type="number" step="any" min="0" name="volume" id="volume" class="form-control" required  >
+                            </div>
+                            
+                            <input type="number" step="any" min="0" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
+                            
+                            <div class="col-md-0">
+                                <div class="form-group">
+                                <label >Total Pembayaran</label>
+                                <input type="text" name="jumlah" id="jumlah" class="form-control form-group  " Readonly disabled></input>
+                            
+                            </div>
+                            </div>
+                            <div>
+                            <a href="/pembayarantiket" >
+                <button type="button" class="btn btn-primary">Beli Tiket</button> </a>
                            
-                        </form>
-                    </div>
-                </div>
+                        </div>
+                        </div>
                 </div>
                 </div>
                 </div>
@@ -180,6 +207,19 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="coba/js/scripts.js"></script>
+        <script src="coba/js/jquery.js"></script>
+        <script type="text/javascript">
+ $("#volume").keyup(function(){
+ total = $("#volume").val()* $("#harga").val();
+ $("#jumlah").val(total);
+ });
+ 
+$("#harga").keyup(function(){
+ total = $("#volume").val()* $("#harga").val();
+ $("#jumlah").val(total);
+ });
+ 
+</script>
     </body>
 </html>
 

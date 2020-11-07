@@ -50,5 +50,9 @@ class HomeController extends Controller
         return view ('pengunjung.pembayarantiket');
     }
 
+    public function detailtiket(){
+        return view ('pengunjung.detailtiket');
+    }
+
 
 }

@@ -34,7 +34,9 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 </style>
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -58,7 +60,7 @@
   </div>
 </div>
                         
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Detail Tiket</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
                         <li class="sidebar-nav-item">
         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -80,7 +82,7 @@
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase"><a href="#tiket">Pemesanan Tiket</a></h1>
+                    <h1 class="mx-auto my-0 text-uppercase"><a href="#tiket"> Pembayaran TIket</a></h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
                 </div>
             </div>
@@ -88,55 +90,99 @@
         <!-- Projects-->
        
         <!-- Signup-->
+        
         <section class="projects-section bg-black" id="tiket" >
             <div class="container" >
                 <!-- Featured Project Row-->
                 
                 <!-- Project One Row-->
-                <div class="col-md-10 col-lg-8 mx-auto">
-                <div class="card bg-white">
-                <div class="row justify-content-center no-gutters ">
-                <form method="POST" action="co_pem.php" enctype="multipart/form-data">
-						  <div class="col-lg-20 ftco-animate p-md-20">
-                          <h4 class="text-center font-weight-bold text-primary card-header" >Pesan Tiketmu</h4>
-                          
-                            <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
+                
+
+                <div class="row justify-content-center no-gutters  " style="margin-left:-550px">
+                <div class="col-md-1 col-lg-5 mx-auto" >
+                        <div class="card bg-white">
+                            <div class="card-header mb-0"><h5 class="text-center font-weight-bold text-primary">Tiket Pesanan</h5></div>
+                                <div class="card-body">
+                        <form style="margin-left:30px;margin-top:10px">
+                        <div class="row align-items-end">
+                            <div class="form-group  col-md-6">
                             
-                            <div class="row align-items-end">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="id_transaksi">Nama</label>
-                            <input type="text" class="form-control"  >
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label for="total_pembayaran">Nomor telepon</label>
-                            <input type="text"  class="form-control"  >
-                            </div>
-                            </div>
-                            <div class="col-md-12">
-                                <p>Alamat</p>
-                            <input type="text"  class="form-control"  >
-                            </div>
-                            <div class="col-md-4" style="padding-top:10px">
-                                <div class="form-group" >
-                                <label >Jumlah Tiket</label>
-                            <input type="number"  class="form-control"  >
-                            </div>
-                            <div class="col-md-0">
-                                <div class="form-group">
-                                <label >Total Pembayaran</label>
+                                <label>Nama</label>
                                 <label class="form-control form-group  "></label>
-                            
+                            </div>
+                            <div class="form-group  col-md-4">
+                                <label>Nomor Telepon</label>
+                                <label class="form-control form-group "> </label>
                             </div>
                             </div>
-                            <div>
-                            <a href="/pembayarantiket" >
-                <button type="button" class="btn btn-primary">Beli Tiket</button> </a>
+                            <div class="form-group col-md-11" style="margin-left:-10px">
+                                <label>Alamat</label>
+                                <label class="form-control form-group  "></label>
+                            </div>
+                            <div class="form-group col-md-4" style="margin-left:-10px">
+                                <label>Tanggal Pembelian</label>
+                                <label class="form-control form-group "></label>
+                            </div>
+                            <div class="form-group col-md-4" style="margin-left:-10px">
+                                <label>Jumlah Tiket</label>
+                                <label class="form-control form-group  "></label>
+                            </div>
+                            <div class="form-group col-md-4" style="margin-left:-10px">
+                                <label>Total Pembayaran</label>
+                                <label class="form-control form-group  "></label>
+                            </div>
                            
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <div class="row justify-content-center no-gutters  " style="margin-top:-554px;margin-left:750px">
+                <div class="col-md-1 col-lg-10 mx-auto">
+                        <div class="card bg-white">
+                            <div class="card-header mb-0"><h5 class="text-center font-weight-bold text-primary">Melakukan Pembayaran</h5></div>
+                                <div class="card-body">
+                        <form style="margin-left:30px;margin-top:10px">
+                        <div class="row align-items-end">
+                            <div class="  col-md-6">
+                            
+                                <label>Bank Tujuan</label>
+                                <br>
+                                <select name='agama'>
+		<option value='katholik'>Mandiri-Si Bot-1430005516248</option>
+		<option value='kristen'>BCA-Si Bot-408999872778</option>
+	  </select>
+                            </div>
+                            
+                            <div class="col-md-11" style="margin-top:10px">
+                                <label>Nama Rekening Pengirim</label>
+                                <input type="text" class="form-control"  >
+                            </div>
+                            <div class=" col-md-6"style="margin-top:10px" >
+                                <label>No. Rekening Pengirim</label>
+                                <input type="number" class="form-control"  >
+                            </div>
+                            <div class="col-md-10" style="margin-top:15px" >
+                            <p>Upload Bukti Pembayaran</p>
+                            <input type='file' name='foto' />
+                            </div>
+                            <div style="margin-top:20px;margin-left:15px">
+                            <a href="/prosestiket" >
+                <button type="button" class="btn btn-primary">Bayar</button> </a>
+                <div style="margin-left:140px;margin-top:-58px">
+                <a href="/prosestiket" >
+                <button type="button" class="btn btn-primary">Batalkan Pesanan</button> </a>
+                </div>
                         </div>
-                        </div>
+                            
+                            
+                           
+     
+                        </form>
+                    </div>
+                </div>
                 </div>
                 </div>
                 </div>
@@ -183,8 +229,8 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-               
             </div>
         </section>
 

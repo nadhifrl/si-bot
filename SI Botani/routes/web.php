@@ -32,5 +32,5 @@ Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::get('/profil', 'profilPengunjungController@profil');
     Route::get('/pemesanantiket', 'HomeController@pemesanantiket');
     Route::get('/pembayarantiket', 'HomeController@pembayarantiket');
-    
+    Route::get('/detailtiket', 'HomeController@detailtiket');
 });
