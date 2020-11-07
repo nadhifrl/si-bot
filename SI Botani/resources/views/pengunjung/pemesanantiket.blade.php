@@ -70,7 +70,7 @@
                      @csrf
                    </form>
                     
-      </li>
+      </li> 
                     </ul>
                 </div>
             </div>
