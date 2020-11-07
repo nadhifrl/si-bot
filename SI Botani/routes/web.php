@@ -26,12 +26,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::get('/admin', 'HomeController@admin');
+    Route::get('/verifikasi', 'HomeController@verifikasi');
 });
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::get('/pengunjung', 'HomeController@pengunjung');
     Route::get('/profil', 'profilPengunjungController@profil');
-    Route::get('/pemesanantiket', 'HomeController@pemesanantiket');
+    Route::get('/pemesanantiket', 'PemesananTiketController@index');
+    Route::get('/pemesanantiket/create', 'PemesananTiketController@create');
+    Route::post('/pemesanantiket-store', 'PemesananTiketController@store');
     Route::get('/pembayarantiket', 'HomeController@pembayarantiket');
     Route::get('/detailtiket', 'HomeController@detailtiket');
 });

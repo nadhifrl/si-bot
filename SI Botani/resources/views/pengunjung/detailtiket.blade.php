@@ -90,67 +90,52 @@
     <!-- Projects-->
 
     <!-- Signup-->
-    <section class="projects-section bg-black" id="tiket">
+    <section class="projects-section bg-white" id="tiket">
         <div class="container">
-            <!-- Featured Project Row-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nomor</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Nomor Telepon</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Jumlah Tiket</th>
+                        <th scope="col">Total Bayar</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Nadhif</td>
+                        <td>089505531958</td>
+                        <td>dsa</td>
+                        <td>dsa</td>
+                        <td>ds</td>
+                        <td>ds</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Nadhif</td>
+                        <td>089505531958</td>
+                        <td>dsa</td>
+                        <td>dsa</td>
+                        <td>ds</td>
+                        <td>ds</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Nadhif</td>
+                        <td>089505531958</td>
+                        <td>dsa</td>
+                        <td>dsa</td>
+                        <td>ds</td>
+                        <td>ds</td>
+                    </tr>
 
-            <!-- Project One Row-->
-            <div class="col-md-10 col-lg-8 mx-auto">
-                <div class="card bg-white">
-                    <div class="row justify-content-center no-gutters ">
-                        <form method="POST" action="co_pem.php" enctype="multipart/form-data">
-                            <div class="col-lg-20 ftco-animate p-md-20">
-                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Harga Rp. 20.000,00)</h4>
-
-                                <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
-
-                                    <div class="row align-items-end">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="name">Nama</label>
-                                                <input type="text" class="form-control" name="name" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="total_pembayaran">Nomor telepon</label>
-                                                <input type="number" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p>Alamat</p>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="col-md-4" style="padding-top:10px">
-                                            <div class="form-group">
-                                                <label>Tanggal Pembelian</label>
-                                                <input type="date" class="form-control">
-                                            </div>
-                                            <div class="col-md-17">
-                                                <div class="form-group">
-                                                    <label>Jumlah Tiket</label>
-                                                    <input type="number" step="any" min="0" name="volume" id="volume" class="form-control" required>
-                                                </div>
-
-                                                <input type="number" step="any" min="0" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
-
-                                                <div class="col-md-0">
-                                                    <div class="form-group">
-                                                        <label>Total Pembayaran</label>
-                                                        <input type="text" name="jumlah" id="jumlah" class="form-control form-group  " Readonly disabled></input>
-
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <a href="/pembayarantiket">
-                                                        <button type="button" class="btn btn-primary">Beli Tiket</button> </a>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Project Two Row-->
+                </tbody>
+            </table>
+        </div>
 
     </section>
 

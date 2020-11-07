@@ -21,6 +21,7 @@ class CreatePemesanantiketTable extends Migration
             $table->date('tanggalpembelian')->nullable();
             $table->integer('jumlahtiket')->nullable();
             $table->integer('totalharga')->nullable();
+            $table->enum('status', ['menunggu']);
         });
     }
 

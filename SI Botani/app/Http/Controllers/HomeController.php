@@ -26,33 +26,36 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if ($user->role == 'admin'){
+        if ($user->role == 'admin') {
             return redirect('/admin');
-        }else{
+        } else {
             return redirect('/pengunjung');
         }
     }
 
 
-    public function admin(){
-        return view ('admin.dashboardadmin');
+    public function admin()
+    {
+        return view('admin.dashboardadmin');
     }
 
-    public function pengunjung(){
-        return view ('pengunjung.dashboardpengunjung');
+    public function pengunjung()
+    {
+        return view('pengunjung.dashboardpengunjung');
     }
 
-    public function pemesanantiket(){
-        return view ('pengunjung.pemesanantiket');
+    public function pembayarantiket()
+    {
+        return view('pengunjung.pembayarantiket');
     }
 
-    public function pembayarantiket(){
-        return view ('pengunjung.pembayarantiket');
+    public function detailtiket()
+    {
+        return view('pengunjung.detailtiket');
     }
 
-    public function detailtiket(){
-        return view ('pengunjung.detailtiket');
+    public function verifikasi()
+    {
+        return view('admin.verifikasi');
     }
-
-
 }
