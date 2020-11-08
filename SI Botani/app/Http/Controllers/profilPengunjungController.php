@@ -13,10 +13,10 @@ class profilPengunjungController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function profil()
+    public function index()
     {
-        $user=Auth::user();
-        return view('pengunjung.profil')->with('user',$user);
+        $user = Auth::user();
+        return view('pengunjung.profil')->with('user', $user);
     }
 
     /**
@@ -26,7 +26,7 @@ class profilPengunjungController extends Controller
      */
     public function create()
     {
-        // 
+        //
     }
 
     /**
@@ -48,7 +48,7 @@ class profilPengunjungController extends Controller
      */
     public function show($id)
     {
-       //
+        //
     }
 
     /**
@@ -78,12 +78,12 @@ class profilPengunjungController extends Controller
         ]);
 
         User::where('id', $student->id)
-                ->update([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'alamat' => $request->alamat,
-                ]);
-                return redirect('/profile-pengujung')->with('status','Data Berhasil di Ubah');
+            ->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'alamat' => $request->alamat,
+            ]);
+        return redirect('/profile-pengujung')->with('status', 'Data Berhasil di Ubah');
     }
 
     /**

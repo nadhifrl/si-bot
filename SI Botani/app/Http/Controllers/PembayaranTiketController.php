@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Tiket;
+use Illuminate\Http\Request;
 use Auth;
 
-class PemesananTiketController extends Controller
+class PembayaranTiketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,11 @@ class PemesananTiketController extends Controller
      */
     public function index()
     {
-        return view('pengunjung.pemesanantiket');
+        $user = Auth::user();
+        $pembayarantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
+        // dd($pembayarantiket);
+        // dd($pembayarantiket);
+        return view('pengunjung.pembayarantiket')->with('pembayarantiket', $pembayarantiket);
     }
 
     /**
@@ -25,7 +29,6 @@ class PemesananTiketController extends Controller
      */
     public function create()
     {
-        return view('pengunjung.pembayarantiket');
     }
 
     /**
@@ -36,21 +39,7 @@ class PemesananTiketController extends Controller
      */
     public function store(Request $request)
     {
-
-        $user = Auth::user();
-
-        Tiket::create([
-            'user_id' => $user->id,
-            'name' => $request->name,
-            'nomortelepon' => $request->nomortelepon,
-            'alamat' => $request->alamat,
-            'tanggalpembelian' => $request->tanggalpembelian,
-            'jumlahtiket' => $request->jumlahtiket,
-            'totalharga' => $request->totalharga,
-            'status' => "Menunggu"
-        ]);
-        return redirect('/pembayarantiket')
-            ->with('success', 'Telah Berhasil Membuat Akun');
+        //
     }
 
     /**

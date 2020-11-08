@@ -98,51 +98,57 @@
             <!-- Project One Row-->
 
 
-            <div class="row justify-content-center no-gutters  " style="margin-left:-550px">
-                <div class="col-md-1 col-lg-5 mx-auto">
+            <div class="row justify-content-center no-gutters  " >
+                @if(!empty($pembayarantiket))
+                <div class="col-md-1 col-lg-7 mx-auto">
                     <div class="card bg-white">
+
                         <div class="card-header mb-0">
                             <h5 class="text-center font-weight-bold text-primary">Tiket Pesanan</h5>
                         </div>
                         <div class="card-body">
+
                             <form style="margin-left:30px;margin-top:10px">
                                 <div class="row align-items-end">
                                     <div class="form-group  col-md-6">
 
                                         <label>Nama</label>
-                                        <label class="form-control form-group  "></label>
+                                        <label class="form-control form-group">{{$pembayarantiket->name}}</label>
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Nomor Telepon</label>
-                                        <label class="form-control form-group "> </label>
+                                        <label class="form-control form-group ">{{$pembayarantiket->nomortelepon}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-11" style="margin-left:-10px">
                                     <label>Alamat</label>
-                                    <label class="form-control form-group  "></label>
+                                    <label class="form-control form-group  ">{{$pembayarantiket->alamat}}</label>
                                 </div>
                                 <div class="form-group col-md-4" style="margin-left:-10px">
                                     <label>Tanggal Pembelian</label>
-                                    <label class="form-control form-group "></label>
+                                    <label class="form-control form-group ">{{$pembayarantiket->tanggalpembelian}}</label>
                                 </div>
                                 <div class="form-group col-md-4" style="margin-left:-10px">
                                     <label>Jumlah Tiket</label>
-                                    <label class="form-control form-group  "></label>
+                                    <label class="form-control form-group  ">{{$pembayarantiket->jumlahtiket}}</label>
                                 </div>
                                 <div class="form-group col-md-4" style="margin-left:-10px">
                                     <label>Total Pembayaran</label>
-                                    <label class="form-control form-group  "></label>
+                                    <label class="form-control form-group  ">{{$pembayarantiket->totalharga}}</label>
                                 </div>
 
                             </form>
+
                         </div>
+
                     </div>
                 </div>
             </div>
+            @endif
         </div>
 
-        <div class="row justify-content-center no-gutters  " style="margin-top:-554px;margin-left:750px">
-            <div class="col-md-1 col-lg-10 mx-auto">
+        <div class="row justify-content-center no-gutters  " style="margin-top:40px;">
+            <div class="col-md-1 col-lg-5 mx-auto">
                 <div class="card bg-white">
                     <div class="card-header mb-0">
                         <h5 class="text-center font-weight-bold text-primary">Melakukan Pembayaran</h5>

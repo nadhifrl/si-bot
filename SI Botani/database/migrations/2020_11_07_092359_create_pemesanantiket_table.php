@@ -15,13 +15,14 @@ class CreatePemesanantiketTable extends Migration
     {
         Schema::create('pemesanantiket', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->string('name')->unique();
             $table->char('nomortelepon')->nullable();
             $table->string('alamat')->nullable();
             $table->date('tanggalpembelian')->nullable();
             $table->integer('jumlahtiket')->nullable();
             $table->integer('totalharga')->nullable();
-            $table->enum('status', ['menunggu']);
+            $table->enum('status', ['Menunggu', 'Tidak Aktif', 'Proses', 'Pembayaran Tidak Disetujui', 'Pembayaran Disetujui']);
         });
     }
 

@@ -31,10 +31,10 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::get('/pengunjung', 'HomeController@pengunjung');
-    Route::get('/profil', 'profilPengunjungController@profil');
+    Route::get('/profil', 'profilPengunjungController@index');
     Route::get('/pemesanantiket', 'PemesananTiketController@index');
     Route::get('/pemesanantiket/create', 'PemesananTiketController@create');
     Route::post('/pemesanantiket-store', 'PemesananTiketController@store');
-    Route::get('/pembayarantiket', 'HomeController@pembayarantiket');
-    Route::get('/detailtiket', 'HomeController@detailtiket');
+    Route::get('/pembayarantiket', 'PembayaranTiketController@index');
+    Route::get('/detailtiket', 'DetailTiketController@index');
 });

@@ -115,17 +115,17 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="total_pembayaran">Nomor telepon</label>
-                                                <input type="number" class="form-control" name="nomortelepon">
+                                                <input type="number" class="form-control" name="nomortelepon" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <p>Alamat</p>
-                                            <input type="text" class="form-control" name="alamat">
+                                            <input type="text" class="form-control" name="alamat" required>
                                         </div>
                                         <div class="col-md-4" style="padding-top:10px">
                                             <div class="form-group">
                                                 <label>Tanggal Pembelian</label>
-                                                <input type="date" class="form-control" name="tanggalpembelian">
+                                                <input type="date" class="form-control" name="tanggalpembelian" required>
                                             </div>
                                             <div class="col-md-17">
                                                 <div class="form-group">

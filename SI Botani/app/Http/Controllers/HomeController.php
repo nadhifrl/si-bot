@@ -44,11 +44,6 @@ class HomeController extends Controller
         return view('pengunjung.dashboardpengunjung');
     }
 
-    public function pembayarantiket()
-    {
-        return view('pengunjung.pembayarantiket');
-    }
-
     public function detailtiket()
     {
         return view('pengunjung.detailtiket');
