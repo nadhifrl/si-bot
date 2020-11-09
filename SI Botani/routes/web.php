@@ -27,6 +27,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::get('/admin', 'HomeController@admin');
     Route::get('/verifikasi', 'HomeController@verifikasi');
+    Route::get('/sarana', 'SaranaController@index');
+    Route::resource('sarana', 'SaranaController');
+    Route::resource('jadwal', 'JadwalController');
 });
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {

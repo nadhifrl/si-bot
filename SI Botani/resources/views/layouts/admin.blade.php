@@ -8,14 +8,18 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
-    <link href="developer/css/styles.css" rel="stylesheet" />
+    <link href="{{asset('developer/css/styles.css')}}" rel="stylesheet" />
+     <link rel="stylesheet" href="{{ asset('developer/fonts/font-awesome.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ asset('developer/fonts/ionicons.min.css') }}">
+    @stack('customcss')
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Si-Bot (ADMIN)</a>
+        <a class="navbar-brand" href="/admin">Si-Bot (ADMIN)</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -55,8 +59,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/verifikasi   ">Verifikasi Tiket</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Detail Tiket Pembelian</a>
+                                 <a class="nav-link collapsed" href="/sarana">Verifikasi Tiket</a>
+                            <a class="nav-link collapsed" href="/jadwal">Detail Tiket Pembelian</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -66,10 +70,9 @@
                         </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Taman Botani Sukorambi
-                                </a>
 
+                                <a class="nav-link collapsed" href="{{ route('sarana.index') }}">Sarana</a>
+                              <a class="nav-link collapsed" href="{{ route('jadwal.index') }}">Jadwal</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="charts.html">
@@ -81,84 +84,24 @@
 
             </nav>
         </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid">
-                    <h1 class="mt-4">Verifikasi Tiket</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Verifikasi Tiket</li>
-                    </ol>
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Nomor</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Nomor Telepon</th>
-                                <th scope="col">Alamat</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Jumlah Bayar</th>
-                                <th scope="col">Total Harga</th>
-                                <th scope="col">Foto Bukti</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Nadhif</td>
-                                <td>089505531958</td>
-                                <td>perumahan</td>
-                                <td>27-10-99</td>
-                                <td>5</td>
-                                <td>20000</td>
-                                <td><img src="img/"></td>
-                                <td>
-                                    <a href="" class="badge badge-success">Disetujui</a>
-                                    <a href="" class="badge badge-danger">Ditolak</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Nadhif</td>
-                                <td>089505531958</td>
-                                <td>perumahan</td>
-                                <td>27-10-99</td>
-                                <td>5</td>
-                                <td>20000</td>
-                                <td><img src="img/"></td>
-                                <td>
-                                    <a href="" class="badge badge-success">Disetujui</a>
-                                    <a href="" class="badge badge-danger">Ditolak</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Nadhif</td>
-                                <td>089505531958</td>
-                                <td>perumahan</td>
-                                <td>27-10-99</td>
-                                <td>5</td>
-                                <td>20000</td>
-                                <td><img src="img/"></td>
-                                <td>
-                                    <a href="" class="badge badge-success">Disetujui</a>
-                                    <a href="" class="badge badge-danger">Ditolak</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </main>
-        </div>
+
+
+
+        @yield('content')
+
+
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="developer/js/scripts.js"></script>
+        <script src="{{asset('developer/js/scripts.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="developer/assets/demo/chart-area-demo.js"></script>
-        <script src="developer/assets/demo/chart-bar-demo.js"></script>
+        <script src="{{asset('developer/assets/demo/chart-area-demo.js')}}"></script>
+        <script src="{{asset('developer/assets/demo/chart-bar-demo.js')}}"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="developer/assets/demo/datatables-demo.js"></script>
+        <script src="{{asset('developer/assets/demo/datatables-demo.js')}}"></script>
+        @stack('customdatatables')
 </body>
 
 </html>
