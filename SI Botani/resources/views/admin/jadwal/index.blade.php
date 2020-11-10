@@ -14,18 +14,22 @@
         <tr>
           <th>No</th>
           <th>Jadwal</th>
+          <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
-            <tr>
-                    <td></td>
-                    <td></td>
+            @foreach ($jadwal as $item)
+                <tr>
+                    <td>{{($loop->iteration)}}</td>
                     <td>
-                        <a href="" class="btn btn-info">Edit</a>
-
-
-                         </td>
+                        {{$item->jadwal}}
+                    </td>
+                    <td>
+                    <a href="{{ route('jadwal.edit',$item->id) }}" class="btn btn-info">Edit</a>
+                    </td>
                 </tr>
+            @endforeach
+
 
 
         </tbody>

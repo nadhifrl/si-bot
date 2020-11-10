@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jadwal;
 
 class JadwalController extends Controller
 {
@@ -13,7 +14,8 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        return view ('admin.jadwal.index');
+        $jadwal=Jadwal::latest()->get();
+        return view ('admin.jadwal.index', compact('jadwal'));
     }
 
     /**
@@ -23,7 +25,7 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        return view ('admin.jadwal.create');
+
     }
 
     /**
@@ -56,7 +58,8 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jadwal= Jadwal::find($id);
+        return view('admin.jadwal.edit',compact('jadwal'));
     }
 
     /**
@@ -68,7 +71,9 @@ class JadwalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jadwal= Jadwal::find($id);
+        $jadwal->update($request->all());
+        return redirect()->route('jadwal.index');
     }
 
     /**

@@ -12,17 +12,18 @@
                 <div class="container-fluid">
                     <h1 class="mt-4">Sarana</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Sarana</li>
+                        <li class="breadcrumb-item active">Menambahkan</li>
                     </ol>
                      <div class="box-header">
     </div>
     <!-- /.box-header -->
     <div class="box-body pad">
-      <form action="" enctype="multipart/form-data" method="POST">
-
+    <form action="{{route('sarana.store')}}" enctype="multipart/form-data" method="POST">
+        @method('POST')
+@csrf
         <div class="form-group">
           <label>Judul</label>
-          <input type="text" class="form-control" name="judul">
+          <input type="text" class="form-control" name="judul" placeholder="Judul">
         </div>
         <div class="form-group">
           <label>Gambar</label>
@@ -37,7 +38,7 @@
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Tambah Artikel</button>
-          <a href="#" class="btn btn-danger">Kembali</a>
+          <a href="{{route('sarana.index')}}" class="btn btn-danger">Kembali</a>
         </div>
 
       </form>

@@ -24,22 +24,22 @@
         </tr>
         </thead>
         <tbody>
+             @foreach ($sarana as $item)
             <tr>
-                    <td></td>
-                    <td></td>
-                    <td><img src="" width="50px" height="50px" ></td>
-                    <td>
-                        <a href="" class="btn btn-info">Edit</a>
-
-                        <a href="" class="btn btn-danger">
-                          <span class="fa fa-trash"></span>
-                                <form action="" method="POST">
-
+                <td>{{( $loop->iteration)}}</td>
+                <td>{{$item->judul}}</td>
+                <td><img src="https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-04-512.png" width="50px" height="50px" ></td>
+                <td>
+                    <a href="{{ route('sarana.edit',$item->id) }}" class="btn btn-info">Edit</a>
+                    <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger">
+                                <span class="fa fa-trash"></span>
+                                <form action="{{ route('sarana.destroy',$item->id) }}" method="POST">
+                                     @csrf
                                      @method('DELETE')
                                 </form>
                          </td>
                 </tr>
-
+@endforeach
 
         </tbody>
       </table>

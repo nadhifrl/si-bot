@@ -10,7 +10,7 @@
  <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Sarana</h1>
+                    <h1 class="mt-4">Jadwal</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Mengedit</li>
                     </ol>
@@ -18,27 +18,17 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body pad">
-    <form action="{{route('sarana.update',$sarana->id)}}"  method="POST">
+     <form action="{{route('jadwal.update',$jadwal->id)}}"  method="POST">
         @method('PUT')
 @csrf
         <div class="form-group">
-          <label>Judul</label>
-        <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{$sarana->judul}}">
-        </div>
-        <div class="form-group">
-          <label>Gambar</label>
-          <input type="file" class="form-control" name="gambar" value="{{$sarana->gambar}}">
+          <label>Jadwal</label>
+        <input type="text" class="form-control" name="jadwal" placeholder="Isi Jadwal" value="{{$jadwal->jadwal}}">
         </div>
 
         <div class="form-group">
-          <label>Isi Artikel</label>
-           <textarea name="body" id="editor1" class="textarea" placeholder="Place some text here" value="{!! $sarana->body !!}"
-                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-          </textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Edit Sarana</button>
-          <a href="{{route('sarana.index')}}" class="btn btn-danger">Kembali</a>
+          <button type="submit" class="btn btn-primary">Edit Jadwal</button>
+          <a href="{{ route('jadwal.index') }}" class="btn btn-danger">Kembali</a>
         </div>
 
       </form>

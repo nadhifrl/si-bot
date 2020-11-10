@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sarana;
 
 class SaranaController extends Controller
 {
@@ -13,7 +14,8 @@ class SaranaController extends Controller
      */
     public function index()
     {
-        return view ('admin.sarana.index');
+        $sarana=Sarana::latest()->get();
+        return view ('admin.sarana.index', compact('sarana'));
     }
 
     /**
@@ -23,6 +25,7 @@ class SaranaController extends Controller
      */
     public function create()
     {
+
         return view ('admin.sarana.create');
     }
 
@@ -34,7 +37,14 @@ class SaranaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Sarana::create($request->all());
+        $image=$request->file('gambar')->store('jadwal');
+        Sarana::create([
+            'judul'=>\Str::slug($request->judul),
+            'body'=>$request->body,
+            'gambar'=>$image
+        ]);
+        return redirect()->route('sarana.index');
     }
 
     /**
@@ -56,7 +66,8 @@ class SaranaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sarana= Sarana::find($id);
+        return view('admin.sarana.edit',compact('sarana'));
     }
 
     /**
@@ -68,7 +79,9 @@ class SaranaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sarana= Sarana::find($id);
+        $sarana->update($request->all());
+        return redirect()->route('sarana.index');
     }
 
     /**
@@ -79,6 +92,11 @@ class SaranaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sarana=Sarana::find($id);
+        if(!$sarana){
+            return redirect()->back();
+        }
+        $sarana->delete();
+        return redirect()->route('sarana.index');
     }
 }
