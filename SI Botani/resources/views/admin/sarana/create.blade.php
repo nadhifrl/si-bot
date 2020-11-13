@@ -1,12 +1,5 @@
 @extends('layouts.admin')
-@push('customcss')
-<link rel="stylesheet" href="{{ asset('developer/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-@endpush
 @section('content')
-  <!-- Default box -->
-
-
-
  <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
@@ -32,8 +25,8 @@
 
         <div class="form-group">
           <label>Isi Artikel</label>
-           <textarea name="body" id="editor1" class="textarea" placeholder="Place some text here"
-                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+           <textarea name="body"  placeholder="Place some text here"
+                style="width: 100%; height: 200px;  line-height: 18px; border: 1px solid #dddddd;">
           </textarea>
         </div>
         <div class="form-group">
@@ -50,15 +43,4 @@
         </div>
   <!-- /.box -->
   @endsection
-  @push('customdatatables')
-  <script src="{{asset('developer/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-<script>
-    $(function () {
-      // Replace the <textarea id="editor1"> with a CKEditor
-      // instance, using default configuration.
-      //CKEDITOR.replace('editor1')
-      //bootstrap WYSIHTML5 - text editor
-      $('.textarea').wysihtml5()
-    })
-  </script>
-  @endpush
+

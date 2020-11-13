@@ -28,9 +28,9 @@
             <tr>
                 <td>{{( $loop->iteration)}}</td>
                 <td>{{$item->judul}}</td>
-                <td><img src="https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-04-512.png" width="50px" height="50px" ></td>
+                <td><img src="{{asset('uploads/'.$item->gambar)}}" width="200px" height="100px" ></td>
                 <td>
-                    <a href="{{ route('sarana.edit',$item->id) }}" class="btn btn-info">Edit</a>
+                    <a href="{{route('sarana.edit',$item->id)}}" class="btn btn-info">Edit</a>
                     <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger">
                                 <span class="fa fa-trash"></span>
                                 <form action="{{ route('sarana.destroy',$item->id) }}" method="POST">

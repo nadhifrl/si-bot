@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Storage;
 use Illuminate\Http\Request;
 use App\Sarana;
 
@@ -37,8 +37,8 @@ class SaranaController extends Controller
      */
     public function store(Request $request)
     {
-        Sarana::create($request->all());
-        $image=$request->file('gambar')->store('jadwal');
+
+        $image=$request->file('gambar')->store('sarana');
         Sarana::create([
             'judul'=>\Str::slug($request->judul),
             'body'=>$request->body,
@@ -80,7 +80,12 @@ class SaranaController extends Controller
     public function update(Request $request, $id)
     {
         $sarana= Sarana::find($id);
-        $sarana->update($request->all());
+        Storage::delete($sarana->gambar);
+        $sarana->update([
+            'judul'=>\Str::slug($request->judul),
+            'body'=>$request->body,
+            'gambar'=>$request->file('gambar')->store('sarana'),
+        ]);
         return redirect()->route('sarana.index');
     }
 
@@ -96,7 +101,9 @@ class SaranaController extends Controller
         if(!$sarana){
             return redirect()->back();
         }
+        Storage::delete($sarana->gambar);
         $sarana->delete();
         return redirect()->route('sarana.index');
-    }
+        }
+
 }

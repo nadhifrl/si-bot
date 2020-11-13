@@ -12,7 +12,6 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
-          <th>No</th>
           <th>Jadwal</th>
           <th>Aksi</th>
         </tr>
@@ -20,7 +19,6 @@
         <tbody>
             @foreach ($jadwal as $item)
                 <tr>
-                    <td>{{($loop->iteration)}}</td>
                     <td>
                         {{$item->jadwal}}
                     </td>
