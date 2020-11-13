@@ -16,17 +16,17 @@
         @csrf
         <div class="form-group">
           <label>Judul</label>
-          <input type="text" class="form-control" name="judul" placeholder="Judul">
+          <input type="text" class="form-control" name="judul" placeholder="Judul" required>
         </div>
         <div class="form-group">
           <label>Gambar</label>
-          <input type="file" class="form-control" name="gambar">
+          <input type="file" class="form-control" name="gambar" required>
         </div>
 
         <div class="form-group">
-          <label>Isi Artikel</label>
+          <label>Informasi Sarana</label>
            <textarea name="body"  placeholder="Place some text here"
-                style="width: 100%; height: 200px;  line-height: 18px; border: 1px solid #dddddd;">
+                style="width: 100%; height: 200px;  line-height: 18px; border: 1px solid #dddddd;" required>
           </textarea>
         </div>
         <div class="form-group">
