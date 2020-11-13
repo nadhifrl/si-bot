@@ -13,7 +13,7 @@
     <div class="box-body pad">
     <form action="{{route('sarana.store')}}" enctype="multipart/form-data" method="POST">
         @method('POST')
-@csrf
+        @csrf
         <div class="form-group">
           <label>Judul</label>
           <input type="text" class="form-control" name="judul" placeholder="Judul">

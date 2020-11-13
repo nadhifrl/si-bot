@@ -20,6 +20,7 @@
           <th>No</th>
           <th>Judul</th>
           <th>Gambar</th>
+          <th>Deskripsi</th>
           <th>Aksi</th>
         </tr>
         </thead>
@@ -28,15 +29,25 @@
             <tr>
                 <td>{{( $loop->iteration)}}</td>
                 <td>{{$item->judul}}</td>
-                <td><img src="{{asset('uploads/'.$item->gambar)}}" width="200px" height="100px" ></td>
+                <td><img src="{{asset('uploads/'.$item->gambar)}}" width="50px" height="50px" ></td>
+                <td>{{str_limit($item->body, 10, '...')}}</td>
                 <td>
-                    <a href="{{route('sarana.edit',$item->id)}}" class="btn btn-info">Edit</a>
+                    <a href="{{route('sarana.show',$item->id)}}" class="btn btn-success">Detail</a>
+                    <a href="{{route('sarana.edit',$item->id)}}" class="btn btn-primary">Edit</a>
                     <a href="javascript:void(0)" onclick="$(this).find('form').submit()" class="btn btn-danger">
-                                <span class="fa fa-trash"></span>
+                    <span class="fa fa-trash"></span>
                                 <form action="{{ route('sarana.destroy',$item->id) }}" method="POST">
                                      @csrf
                                      @method('DELETE')
                                 </form>
+
+
+
+                                {{-- <form action="{{ route('sarana.destroy',$item->id) }}" method="post" class="d-inline">
+                                     @method('delete')
+                                     @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form> --}}
                          </td>
                 </tr>
 @endforeach

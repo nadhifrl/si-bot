@@ -37,7 +37,12 @@ class SaranaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'judul'=>'required',
+            'body'=>'required',
+            'gambar'=>'mimes:jpg,jpeg,bpm,png',
 
+        ]);
         $image=$request->file('gambar')->store('sarana');
         Sarana::create([
             'judul'=>\Str::slug($request->judul),
@@ -55,7 +60,8 @@ class SaranaController extends Controller
      */
     public function show($id)
     {
-        //
+        $sarana= Sarana::find($id);
+        return view('admin.sarana.detail',compact('sarana'));
     }
 
     /**
@@ -79,14 +85,32 @@ class SaranaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sarana= Sarana::find($id);
-        Storage::delete($sarana->gambar);
-        $sarana->update([
+        $this->validate($request,[
+            'judul'=>'required',
+            'body'=>'required',
+            'gambar'=>'mimes:jpg,jpeg,bpm,png',
+
+        ]);
+
+        if(empty($request->file('gambar'))){
+            $sarana= Sarana::find($id);
+            //Storage::delete($sarana->gambar);
+            $sarana->update([
+            'judul'=>\Str::slug($request->judul),
+            'body'=>$request->body,
+            //'gambar'=>$request->file('gambar')->store('sarana'),
+        ]);
+    }else{
+            $sarana= Sarana::find($id);
+            Storage::delete($sarana->gambar);
+            $sarana->update([
             'judul'=>\Str::slug($request->judul),
             'body'=>$request->body,
             'gambar'=>$request->file('gambar')->store('sarana'),
         ]);
-        return redirect()->route('sarana.index');
+
+    }
+         return redirect()->route('sarana.index');
     }
 
     /**
@@ -105,5 +129,12 @@ class SaranaController extends Controller
         $sarana->delete();
         return redirect()->route('sarana.index');
         }
+
+        // public function destroy($id)
+        // {
+        //     $sarana= Sarana::find($id);
+        //     Sarana::destroy($sarana->id);
+        //     return redirect()->route('sarana.index');
+        // }
 
 }
