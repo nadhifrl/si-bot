@@ -47,7 +47,8 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        //
+        $jadwal= Jadwal::find($id);
+        return view('admin.jadwal.detail',compact('jadwal'));
     }
 
     /**

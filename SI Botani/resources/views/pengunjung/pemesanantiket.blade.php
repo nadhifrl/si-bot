@@ -51,13 +51,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/profil">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Informasi dan Sarana</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/informasi">Informasi dan Sarana</a></li>
                     <div class="dropdown">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger">Tiket</a></li>
                         <div class="dropdown-content">
-                            <a href="/pemesanantiket">Pemesanan Tiket</a>
+                            <a href="{{route('pemesanantiket.index')}}">Pemesanan Tiket</a>
                             <hr>
-                            <a href="/pembayarantiket">Pembayaran Tiket</a>
+                            <a href="{{route('pembayarantiket.index')}}">Pembayaran Tiket</a>
                         </div>
                     </div>
 
@@ -98,7 +98,8 @@
             <div class="col-md-10 col-lg-8 mx-auto">
                 <div class="card bg-white">
                     <div class="row justify-content-center no-gutters ">
-                        <form method="POST" action="/pemesanantiket-store">
+                        <form method="POST" enctype="multipart/form-data" action="{{route('pemesanantiket.store')}}">
+                            @method('POST')
                             @csrf
                             <div class="col-lg-20 ftco-animate p-md-20">
                                 <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Harga Rp. 20.000,00)</h4>

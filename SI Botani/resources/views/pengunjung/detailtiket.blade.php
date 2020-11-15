@@ -51,13 +51,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/profil">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Informasi dan Sarana</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/informasi">Informasi dan Sarana</a></li>
                     <div class="dropdown">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger">Tiket</a></li>
                         <div class="dropdown-content">
-                            <a href="/pemesanantiket">Pemesanan Tiket</a>
+                            <a href="{{route('pemesanantiket.index')}}">Pemesanan Tiket</a>
                             <hr>
-                            <a href="/pembayarantiket">Pembayaran Tiket</a>
+                            <a href="{{route('pembayarantiket.index')}}">Pembayaran Tiket</a>
                         </div>
                     </div>
 

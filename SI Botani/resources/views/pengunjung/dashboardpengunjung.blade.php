@@ -54,9 +54,9 @@
                     <div class="dropdown">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger">Tiket</a></li>
                         <div class="dropdown-content">
-                            <a href="/pemesanantiket">Pemesanan Tiket</a>
+                            <a href="{{route('pemesanantiket.index')}}">Pemesanan Tiket</a>
                             <hr>
-                            <a href="/pembayarantiket">Pembayaran Tiket</a>
+                            <a href="{{route('pembayarantiket.index')}}">Pembayaran Tiket</a>
                         </div>
                     </div>
 

@@ -9,16 +9,18 @@
                         <li class="breadcrumb-item active">Detail Info</li>
                     </ol>
 
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5" style="margin-top: 70px">
-                <div class="col-xl-5 col-lg-7">
-                    <img class="img-fluid mb-3 mb-lg-0" src="{{asset('uploads/'.$sarana->gambar)}}" alt="" />
-                    <a href="{{route('sarana.index')}}" class="btn btn-info" style="margin-top: 20px">Kembali</a>
-                </div>
-                <div class="col-xl-5 col-lg-5">
-                    <div style="margin-left:20px;margin-top:-180px">
+
+                <div class="col-xl-6 col-lg-6">
+                    <div >
                         <h1>{{$sarana->judul}}</h1>
                         <hr>
-                        <textarea >{{$sarana->body}}</textarea>
+
+                        <img class="img-fluid mb-5 mb-lg-0" src="{{asset('uploads/'.$sarana->gambar)}}" alt="" />
+                        <textarea style="margin-top: 20px" cols="50" rows="6">{{$sarana->body}}</textarea>
+
+                         <div class="form-group">
+          <a href="{{route('sarana.index')}}" class="btn btn-info" style="margin-top: 10px">Kembali</a>
+        </div>
                     </div>
                 </div>
             </div>

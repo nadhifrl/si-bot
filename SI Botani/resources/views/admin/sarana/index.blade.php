@@ -9,14 +9,15 @@
                         <li class="breadcrumb-item active">Sarana</li>
                     </ol>
                     <div class="pull-right">
-                       <a href="{{ route('sarana.create') }}" class="btn btn-info">Tambah Sarana</a>
+                       <a href="{{ route('sarana.create') }}" class="btn btn-info">Tambah Informasi Sarana</a>
                     </div>
                     <br>
                     <br>
                      <div class="box-body">
       <table id="example1" class="table table-bordered table-striped">
-        <thead>
+        <thead class="text-center">
         <tr>
+
           <th>No</th>
           <th>Judul</th>
           <th>Gambar</th>
@@ -30,7 +31,7 @@
                 <td>{{( $loop->iteration)}}</td>
                 <td>{{$item->judul}}</td>
                 <td><img src="{{asset('uploads/'.$item->gambar)}}" width="50px" height="50px" ></td>
-                <td>{{str_limit($item->body, 10, '...')}}</td>
+                <td>{{str_limit($item->body, 60, '...')}}</td>
                 <td>
                     <a href="{{route('sarana.show',$item->id)}}" class="btn btn-success">Detail</a>
                     <a href="{{route('sarana.edit',$item->id)}}" class="btn btn-primary">Edit</a>

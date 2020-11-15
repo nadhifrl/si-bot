@@ -12,7 +12,7 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
-          <th>Jadwal</th>
+          <th class="text-center">Jadwal</th>
           <th>Aksi</th>
         </tr>
         </thead>
@@ -20,9 +20,10 @@
             @foreach ($jadwal as $item)
                 <tr>
                     <td>
-                        {{$item->jadwal}}
+                        {{str_limit($item->jadwal, 100, '...')}}
                     </td>
                     <td>
+                    <a href="{{route('jadwal.show',$item->id)}}" class="btn btn-success">Detail</a>
                     <a href="{{ route('jadwal.edit',$item->id) }}" class="btn btn-info">Edit</a>
                     </td>
                 </tr>

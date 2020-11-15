@@ -40,7 +40,7 @@ class SaranaController extends Controller
         $this->validate($request,[
             'judul'=>'required',
             'body'=>'required',
-            'gambar'=>'required',
+            'gambar'=>'mimes:jpg,jpeg,bpm,png',
 
         ]);
         $image=$request->file('gambar')->store('sarana');

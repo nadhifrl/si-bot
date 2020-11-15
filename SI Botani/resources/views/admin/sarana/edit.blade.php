@@ -38,8 +38,8 @@
             </textarea>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Edit Sarana</button>
-          <a href="{{route('sarana.index')}}" class="btn btn-danger">Kembali</a>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <a href="{{route('sarana.index')}}" class="btn btn-danger">Batal</a>
         </div>
 
       </form>

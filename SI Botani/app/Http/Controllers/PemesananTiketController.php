@@ -15,7 +15,7 @@ class PemesananTiketController extends Controller
      */
     public function index()
     {
-        return view('pengunjung.pemesanantiket');
+            return view('pengunjung.pemesanantiket');
     }
 
     /**
@@ -49,8 +49,7 @@ class PemesananTiketController extends Controller
             'totalharga' => $request->totalharga,
             'status' => "Menunggu"
         ]);
-        return redirect('/pembayarantiket')
-            ->with('success', 'Telah Berhasil Membuat Akun');
+        return redirect()->route('pembayarantiket.index');
     }
 
     /**
@@ -95,6 +94,12 @@ class PemesananTiketController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+         $pemesanantiket=Tiket::find($id);
+        if(!$pemesanantiket){
+            return redirect()->back();
+        }
+        $pemesanantiket->delete();
+        return redirect()->route('pembayarantiket.index');
+        }
+
 }

@@ -84,6 +84,14 @@ class PembayaranTiketController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $user = Auth::user();
+        $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
+
+        if(!$pembayarantiket){
+            return redirect()->back();
+        }
+        $pembayarantiket->delete();
+        return redirect()->route('pembayarantiket.index');
+        }
+
 }

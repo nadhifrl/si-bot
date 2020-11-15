@@ -51,13 +51,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/profil">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Informasi dan Sarana</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/informasi">Informasi dan Sarana</a></li>
                     <div class="dropdown">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger">Tiket</a></li>
                         <div class="dropdown-content">
-                            <a href="/pemesanantiket">Pemesanan Tiket</a>
+                            <a href="{{route('pemesanantiket.index')}}">Pemesanan Tiket</a>
                             <hr>
-                            <a href="/pembayarantiket">Pembayaran Tiket</a>
+                            <a href="{{route('pembayarantiket.index')}}">Pembayaran Tiket</a>
                         </div>
                     </div>
 
@@ -93,25 +93,17 @@
 
     <section class="projects-section bg-black" id="tiket">
         <div class="container">
-            <!-- Featured Project Row-->
-
-            <!-- Project One Row-->
-
-
             <div class="row justify-content-center no-gutters  " >
                 @if(!empty($pembayarantiket))
                 <div class="col-md-1 col-lg-7 mx-auto">
                     <div class="card bg-white">
-
                         <div class="card-header mb-0">
                             <h5 class="text-center font-weight-bold text-primary">Tiket Pesanan</h5>
                         </div>
                         <div class="card-body">
-
                             <form style="margin-left:30px;margin-top:10px">
                                 <div class="row align-items-end">
                                     <div class="form-group  col-md-6">
-
                                         <label>Nama</label>
                                         <label class="form-control form-group">{{$pembayarantiket->name}}</label>
                                     </div>
@@ -136,17 +128,18 @@
                                     <label>Total Pembayaran</label>
                                     <label class="form-control form-group  ">{{$pembayarantiket->totalharga}}</label>
                                 </div>
-
                             </form>
-
+                            <form action="{{ route('pembayarantiket.destroy',$pembayarantiket->id) }}" method="post" class="form-group" style="margin-left: 33px">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn btn-primary">Batalkan Pesanan</button>
+                            </form>
                         </div>
-
                     </div>
                 </div>
-            </div>
-            @endif
-        </div>
 
+            </div>
+        </div>
         <div class="row justify-content-center no-gutters  " style="margin-top:40px;">
             <div class="col-md-1 col-lg-5 mx-auto">
                 <div class="card bg-white">
@@ -181,23 +174,14 @@
                                 <div style="margin-top:20px;margin-left:15px">
                                     <a href="/prosestiket">
                                         <button type="button" class="btn btn-primary">Bayar</button> </a>
-                                    <div style="margin-left:140px;margin-top:-58px">
-                                        <a href="/prosestiket">
-                                            <button type="button" class="btn btn-primary">Batalkan Pesanan</button> </a>
-                                    </div>
                                 </div>
-
-
-
-
+                            </div>
                         </form>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
-        </div>
-        <!-- Project Two Row-->
-
     </section>
 
 

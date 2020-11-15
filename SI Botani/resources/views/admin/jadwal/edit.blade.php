@@ -23,12 +23,12 @@
 @csrf
         <div class="form-group">
           <label>Jadwal</label>
-        <input type="text" class="form-control" name="jadwal" placeholder="Isi Jadwal" value="{{$jadwal->jadwal}}">
+        <input type="text" class="form-control" name="jadwal" placeholder="Isi Jadwal" value="{{$jadwal->jadwal}}" required>
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Edit Jadwal</button>
-          <a href="{{ route('jadwal.index') }}" class="btn btn-danger">Kembali</a>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <a href="{{ route('jadwal.index') }}" class="btn btn-danger">Batal</a>
         </div>
 
       </form>
