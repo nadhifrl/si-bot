@@ -9,9 +9,9 @@
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
     <link href="{{asset('developer/css/styles.css')}}" rel="stylesheet" />
-     <link rel="stylesheet" href="{{ asset('developer/fonts/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('developer/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('developer/fonts/font-awesome.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{ asset('developer/fonts/ionicons.min.css') }}">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
@@ -58,8 +58,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                 <a class="nav-link collapsed" href="/sarana">Verifikasi Tiket</a>
-                            <a class="nav-link collapsed" href="/jadwal">Detail Tiket Pembelian</a>
+                                <a class="nav-link collapsed" href="">Verifikasi Tiket</a>
+                                <a class="nav-link collapsed" href="">Detail Tiket Pembelian</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -71,7 +71,7 @@
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
 
                                 <a class="nav-link collapsed" href="{{ route('sarana.index') }}">Sarana</a>
-                              <a class="nav-link collapsed" href="{{ route('jadwal.index') }}">Jadwal</a>
+                                <a class="nav-link collapsed" href="{{ route('jadwal.index') }}">Jadwal</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="charts.html">

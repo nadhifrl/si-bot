@@ -93,7 +93,7 @@
 
     <section class="projects-section bg-black" id="tiket">
         <div class="container">
-            <div class="row justify-content-center no-gutters  " >
+            <div class="row justify-content-center no-gutters  ">
                 @if(!empty($pembayarantiket))
                 <div class="col-md-1 col-lg-7 mx-auto">
                     <div class="card bg-white">
@@ -116,8 +116,8 @@
                                     <label>Alamat</label>
                                     <label class="form-control form-group  ">{{$pembayarantiket->alamat}}</label>
                                 </div>
-                                <div class="form-group col-md-4" style="margin-left:-10px">
-                                    <label>Tanggal Pembelian</label>
+                                <div class="form-group col-md-5" style="margin-left:-10px">
+                                    <label>Tanggal Pemakaian Tiket</label>
                                     <label class="form-control form-group ">{{$pembayarantiket->tanggalpembelian}}</label>
                                 </div>
                                 <div class="form-group col-md-4" style="margin-left:-10px">
@@ -132,7 +132,7 @@
                             <form action="{{ route('pembayarantiket.destroy',$pembayarantiket->id) }}" method="post" class="form-group" style="margin-left: 33px">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn btn-primary">Batalkan Pesanan</button>
+                                <button type="submit" class="btn btn btn-primary" onclick="javascript: return confirm('Anda Yakin Hapus?')">Batalkan Pesanan</button>
                             </form>
                         </div>
                     </div>

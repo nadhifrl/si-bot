@@ -27,7 +27,7 @@
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
+                              document.getElementById('logout-form').submit();">
                         {{ __('Sign out') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -55,8 +55,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                 <a class="nav-link collapsed" href="/sarana">Verifikasi Tiket</a>
-                              <a class="nav-link collapsed" href="/jadwal">Detail Tiket Pembelian</a>
+                                <a class="nav-link collapsed" href="">Verifikasi Tiket</a>
+                                <a class="nav-link collapsed" href="">Detail Tiket Pembelian</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -68,7 +68,7 @@
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
 
                                 <a class="nav-link collapsed" href="/sarana">Sarana</a>
-                              <a class="nav-link collapsed" href="/jadwal">Jadwal</a>
+                                <a class="nav-link collapsed" href="/jadwal">Jadwal</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="charts.html">
@@ -79,24 +79,24 @@
                 </div>
 
             </nav>
-                        </div>
+        </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                     </ol>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="developer/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="developer/assets/demo/chart-area-demo.js"></script>
-        <script src="developer/assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="developer/assets/demo/datatables-demo.js"></script>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+                <script src="developer/js/scripts.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+                <script src="developer/assets/demo/chart-area-demo.js"></script>
+                <script src="developer/assets/demo/chart-bar-demo.js"></script>
+                <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+                <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+                <script src="developer/assets/demo/datatables-demo.js"></script>
 </body>
 
 </html>

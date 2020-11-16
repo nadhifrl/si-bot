@@ -91,32 +91,39 @@
 
     <section class="projects-section bg-light" id="projects">
         <div class="container">
-             @foreach ($jadwal as $a)
-             <div class="col-xl-5 col-lg-5" style="margin-left:auto;margin-right:auto">
-            <table id="example1" class="table table-bordered table-striped" >
-        <thead>
-        <tr>
-          <th class="text-center">Jadwal</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{$a->jadwal}}</td>
-                </tr>
-        </tbody>
-      </table>
-             </div>
-      @endforeach
-            @foreach ($sarana as $item)
-            <div class="row align-items-center no-gutters mb-4 mb-lg-5" style="margin-top: 70px">
-                <div class="col-xl-6 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{asset('uploads/'.$item->gambar)}}" alt="" /></div>
-                <div class="col-xl-5 col-lg-5">
-                    <div class="featured-text text-center text-lg-left">
-                        <h4>{{$item->judul}}</h4>
-                        <p class="text-black-50 mb-0">{{$item->body}}</p>
+            @foreach ($jadwal as $a)
+            <div class="col-xl-30 col-md-90 mx-auto">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="text-center">JADWAL</h1>
+                            <hr>
+                            <p class="text-black-30 mb-0">{{$a->jadwal}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            @endforeach
+            @foreach ($sarana as $item)
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5" style="margin-top: 70px">
+                <div class="col-xl-6 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{asset('uploads/'.$item->gambar)}}" alt="" /></div>
+                <div class="col-xl-6 col-lg-5 ">
+                    <div class="featured-text text-center text-lg-left">
+                        <h1 class="text-center">{{$item->judul}}</h1>
+                        <hr>
+                        <div class="col-xl-30 col-md-90 mx-auto">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-black-30 mb-0">{{$item->body}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             @endforeach
         </div>
     </section>

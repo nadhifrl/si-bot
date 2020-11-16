@@ -123,9 +123,9 @@
                                             <p>Alamat</p>
                                             <input type="text" class="form-control" name="alamat" required>
                                         </div>
-                                        <div class="col-md-4" style="padding-top:10px">
+                                        <div class="col-md-5" style="padding-top:10px">
                                             <div class="form-group">
-                                                <label>Tanggal Pembelian</label>
+                                                <label>Tanggal Pemakaian Tiket</label>
                                                 <input type="date" class="form-control" name="tanggalpembelian" required>
                                             </div>
                                             <div class="col-md-17">
