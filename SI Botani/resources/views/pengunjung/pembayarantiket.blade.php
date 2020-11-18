@@ -95,7 +95,7 @@
         <div class="container">
             <div class="row justify-content-center no-gutters  ">
                 @if(!empty($pembayarantiket))
-                <div class="col-md-1 col-lg-7 mx-auto">
+                <div class="col-md-1 col-lg-8 mx-auto">
                     <div class="card bg-white">
                         <div class="card-header mb-0">
                             <h5 class="text-center font-weight-bold text-primary">Tiket Pesanan</h5>
@@ -103,37 +103,57 @@
                         <div class="card-body">
                             <form style="margin-left:30px;margin-top:10px">
                                 <div class="row align-items-end">
-                                    <div class="form-group  col-md-6">
+                                    <div class="form-group  col-md-6" style="margin-left:10px">
                                         <label>Nama</label>
-                                        <label class="form-control form-group">{{$pembayarantiket->name}}</label>
+                                        <label class=" form-control form-group">{{$pembayarantiket->name}}</label>
                                     </div>
                                     <div class="form-group  col-md-4">
                                         <label>Nomor Telepon</label>
                                         <label class="form-control form-group ">{{$pembayarantiket->nomortelepon}}</label>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-11" style="margin-left:-10px">
+                                <div class="form-group col-md-11">
                                     <label>Alamat</label>
                                     <label class="form-control form-group  ">{{$pembayarantiket->alamat}}</label>
                                 </div>
-                                <div class="form-group col-md-5" style="margin-left:-10px">
+                                <div class="form-group col-md-5">
                                     <label>Tanggal Pemakaian Tiket</label>
                                     <label class="form-control form-group ">{{$pembayarantiket->tanggalpembelian}}</label>
                                 </div>
-                                <div class="form-group col-md-4" style="margin-left:-10px">
+                                <div class="form-group col-md-4">
                                     <label>Jumlah Tiket</label>
                                     <label class="form-control form-group  ">{{$pembayarantiket->jumlahtiket}}</label>
                                 </div>
-                                <div class="form-group col-md-4" style="margin-left:-10px">
+                                <div class="form-group col-md-4">
                                     <label>Total Pembayaran</label>
                                     <label class="form-control form-group  ">{{$pembayarantiket->totalharga}}</label>
                                 </div>
                             </form>
-                            <form action="{{ route('pembayarantiket.destroy',$pembayarantiket->id) }}" method="post" class="form-group" style="margin-left: 33px">
+                            
+                                <button type="submit" class="btn btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin-left:42px">Batalkan Pesanan</button>
+                            
+                            
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin membatalkan pesanan anda?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-footer">
+      <form action="{{ route('pembayarantiket.destroy',$pembayarantiket->id) }}" method="post" class="form-group" >
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn btn-primary" onclick="javascript: return confirm('Anda Yakin Hapus?')">Batalkan Pesanan</button>
-                            </form>
+        <button type="submit" class="btn btn-primary" >IYA</button>
+        </form>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">TIDAK</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -141,48 +161,51 @@
             </div>
         </div>
         <div class="row justify-content-center no-gutters  " style="margin-top:40px;">
-            <div class="col-md-1 col-lg-5 mx-auto">
-                <div class="card bg-white">
-                    <div class="card-header mb-0">
-                        <h5 class="text-center font-weight-bold text-primary">Melakukan Pembayaran</h5>
+            <form action="{{route('pembayarantiket.update',$pembayarantiket->id)}}" enctype="multipart/form-data" method="POST">
+                @method('PUT')
+                @csrf
+                <div class="col-md-1 col-lg-6 mx-auto">
+                    <div class="card bg-white">
+                        <div class="card-header mb-0">
+                            <h5 class="text-center font-weight-bold text-primary">Melakukan Pembayaran</h5>
+                        </div>
+                        <div class="card-body">
+                            <form style="margin-left:30px;margin-top:10px">
+                                <div class="row align-items-end" style="margin-left:10px;">
+                                    <div class=" col-md-6">
+                                        <label>Bank Tujuan</label>
+                                        <br>
+                                        <select name="bank">
+                                            <option value='mandiri'>Mandiri-Si Bot-1430005516248</option>
+                                            <option value='bca'>BCA-Si Bot-408999872778</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-11" style="margin-top:10px">
+                                        <label>Nama Rekening Pengirim</label>
+                                        <input type="text" class="form-control" name="namarekeningpengirim" required>
+                                    </div>
+                                    <div class=" col-md-6" style="margin-top:10px">
+                                        <label>No. Rekening Pengirim</label>
+                                        <input type="number" class="form-control" name="nomorrekening" required>
+                                    </div>
+                                    <div class="col-md-10" style="margin-top:15px">
+                                        <p>Upload Bukti Pembayaran</p>
+                                        <input type='file'>
+                                    </div>
+                                    <div style="margin-top:20px;margin-left:15px">
+                                        <button type="submit" class="btn btn-primary">Bayar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form style="margin-left:30px;margin-top:10px">
-                            <div class="row align-items-end">
-                                <div class="  col-md-6">
-
-                                    <label>Bank Tujuan</label>
-                                    <br>
-                                    <select name='agama'>
-                                        <option value='katholik'>Mandiri-Si Bot-1430005516248</option>
-                                        <option value='kristen'>BCA-Si Bot-408999872778</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-11" style="margin-top:10px">
-                                    <label>Nama Rekening Pengirim</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class=" col-md-6" style="margin-top:10px">
-                                    <label>No. Rekening Pengirim</label>
-                                    <input type="number" class="form-control">
-                                </div>
-                                <div class="col-md-10" style="margin-top:15px">
-                                    <p>Upload Bukti Pembayaran</p>
-                                    <input type='file' name='foto' />
-                                </div>
-                                <div style="margin-top:20px;margin-left:15px">
-                                    <a href="/prosestiket">
-                                        <button type="button" class="btn btn-primary">Bayar</button> </a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    @endif
                 </div>
-                @endif
-            </div>
+            </form>
         </div>
     </section>
+
+
 
 
     <!-- Footer-->
@@ -227,7 +250,25 @@
             </div>
         </div>
     </section>
-
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">

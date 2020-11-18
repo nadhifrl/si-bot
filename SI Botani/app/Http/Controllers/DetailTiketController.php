@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tiket;
+use Auth;
+
 
 class DetailTiketController extends Controller
 {
@@ -13,7 +16,23 @@ class DetailTiketController extends Controller
      */
     public function index()
     {
-        return view('pengunjung.detailtiket');
+        //return view('pengunjung.detailtiket');
+        // $user = Auth::user();
+        // $detailtiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first();
+        // $detailtiket = Tiket::latest()->get();
+        // dd($pembayarantiket);
+        // dd($pembayarantiket);
+        // return view('pengunjung.detailtiket', compact('detailtiket'));
+        // dd($pembayarantiket);
+        // dd($pembayarantiket);
+        $user = Auth::user();
+        // $detailtiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first();
+        // return view('pengunjung.detailtiket')->with('detailtiket', $detailtiket);
+        $detailtiket = Tiket::all();
+        $detailtiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first();
+        return view('pengunjung.detailtiket')->with('detailtiket', $detailtiket);
+        // return view('pengunjung.detailtiket', compact('pemesanantiket'));
+        // return view('pengunjung.detailtiket')->with('detailtiket', $detailtiket);
     }
 
     /**

@@ -106,7 +106,7 @@
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-white"><a href=""> Aneka Macam Wisata Yang Terdapat Di Taman Botani</a></h4>
+                                <h4 class="text-white"><a href="/informasi"> Aneka Macam Wisata Yang Terdapat Di Taman Botani</a></h4>
                                 <hr class="d-none d-lg-block mb-0 ml-0" />
                             </div>
                         </div>

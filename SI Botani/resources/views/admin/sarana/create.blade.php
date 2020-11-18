@@ -19,7 +19,7 @@
             <input type="text" class="form-control" name="judul" placeholder="Judul" required>
           </div>
           <div class="form-group">
-            <label>Gambar</label>
+            <label @error('gambar') class="text-danger" @enderror>Gambar @error('gambar')| {{$message}} @enderror</label>
             <input type="file" class="form-control" name="gambar" required>
           </div>
 

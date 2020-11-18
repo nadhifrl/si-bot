@@ -15,7 +15,7 @@ class PemesananTiketController extends Controller
      */
     public function index()
     {
-            return view('pengunjung.pemesanantiket');
+        return view('pengunjung.pemesanantiket');
     }
 
     /**
@@ -38,8 +38,23 @@ class PemesananTiketController extends Controller
     {
 
         $user = Auth::user();
+        // Tiket::create([
+        //     'user_id' => $user->id,
+        //     'name' => $request->name,
+        //     'nomortelepon' => $request->nomortelepon,
+        //     'alamat' => $request->alamat,
+        //     'tanggalpembelian' => $request->tanggalpembelian,
+        //     'jumlahtiket' => $request->jumlahtiket,
+        //     'totalharga' => $request->totalharga,
+        //     'status' => "Menunggu"
+        // ]);
 
-        Tiket::create([
+        if($pemesanantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first()){
+            return redirect()->route('pemesanantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
+        }
+        
+        else{
+            Tiket::create([
             'user_id' => $user->id,
             'name' => $request->name,
             'nomortelepon' => $request->nomortelepon,
@@ -49,7 +64,10 @@ class PemesananTiketController extends Controller
             'totalharga' => $request->totalharga,
             'status' => "Menunggu"
         ]);
+
+        }
         return redirect()->route('pembayarantiket.index');
+        
     }
 
     /**
@@ -94,12 +112,11 @@ class PemesananTiketController extends Controller
      */
     public function destroy($id)
     {
-         $pemesanantiket=Tiket::find($id);
-        if(!$pemesanantiket){
+        $pemesanantiket = Tiket::find($id);
+        if (!$pemesanantiket) {
             return redirect()->back();
         }
         $pemesanantiket->delete();
         return redirect()->route('pembayarantiket.index');
-        }
-
+    }
 }

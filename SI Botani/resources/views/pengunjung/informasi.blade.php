@@ -92,13 +92,19 @@
     <section class="projects-section bg-light" id="projects">
         <div class="container">
             @foreach ($jadwal as $a)
-            <div class="col-xl-30 col-md-90 mx-auto">
-                <div class="container">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="text-center">JADWAL</h1>
-                            <hr>
-                            <p class="text-black-30 mb-0">{{$a->jadwal}}</p>
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-12">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h1 class="text-white">JADWAL</h1>
+                                <hr class="d-none d-lg-block mb-2 ml-0" />
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="text-black-30 mb-0">{{$a->jadwal}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -123,7 +129,6 @@
                     </div>
                 </div>
             </div>
-
             @endforeach
         </div>
     </section>

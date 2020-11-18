@@ -29,6 +29,7 @@ class PembayaranTiketController extends Controller
      */
     public function create()
     {
+        return view('pengunjung.detailtiket');
     }
 
     /**
@@ -39,7 +40,6 @@ class PembayaranTiketController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -73,7 +73,15 @@ class PembayaranTiketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
+        $pembayarantiket->update([
+            'bank' => $request->bank,
+            'namarekeningpengirim' => $request->namarekeningpengirim,
+            'nomorrekening' => $request->nomorrekening,
+            'status' => "Proses"
+        ]);
+        return redirect()->route('detailtiket.index');
     }
 
     /**
@@ -87,11 +95,10 @@ class PembayaranTiketController extends Controller
         $user = Auth::user();
         $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
 
-        if(!$pembayarantiket){
+        if (!$pembayarantiket) {
             return redirect()->back();
         }
         $pembayarantiket->delete();
-        return redirect()->route('pembayarantiket.index');
-        }
-
+        return redirect()->route('pemesanantiket.index');
+    }
 }

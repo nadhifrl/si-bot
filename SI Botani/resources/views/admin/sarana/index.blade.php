@@ -41,9 +41,6 @@
                     @csrf
                     @method('DELETE')
                   </form>
-
-
-
                   {{-- <form action="{{ route('sarana.destroy',$item->id) }}" method="post" class="d-inline">
                   @method('delete')
                   @csrf

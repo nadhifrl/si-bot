@@ -105,7 +105,11 @@
                                 <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Harga Rp. 20.000,00)</h4>
 
                                 <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
-
+                                @if (session('status'))
+                                <div class="alert alert-danger">
+                                {{ session('status')}}
+                                </div>
+                                @endif
                                     <div class="row align-items-end">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -131,10 +135,10 @@
                                             <div class="col-md-17">
                                                 <div class="form-group">
                                                     <label>Jumlah Tiket</label>
-                                                    <input type="number" step="any" min="0" name="jumlahtiket" id="jumlahtiket" class="form-control" required>
+                                                    <input type="number" step="any" min="1" name="jumlahtiket" id="jumlahtiket" class="form-control" required>
                                                 </div>
 
-                                                <input type="number" step="any" min="0" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
+                                                <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
 
                                                 <div class="col-md-0">
                                                     <div class="form-group">

@@ -22,6 +22,10 @@ class CreatePemesanantiketTable extends Migration
             $table->date('tanggalpembelian')->nullable();
             $table->integer('jumlahtiket')->nullable();
             $table->integer('totalharga')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('namarekeningpengirim')->nullable();
+            $table->char('nomorrekening')->nullable();
+            $table->text('gambar')->nullable();
             $table->enum('status', ['Menunggu', 'Tidak Aktif', 'Proses', 'Pembayaran Tidak Disetujui', 'Pembayaran Disetujui']);
         });
     }

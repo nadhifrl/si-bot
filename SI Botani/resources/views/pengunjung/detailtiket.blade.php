@@ -91,6 +91,7 @@
 
     <!-- Signup-->
     <section class="projects-section bg-white" id="tiket">
+
         <div class="container">
             <table class="table">
                 <thead class="thead-dark">
@@ -105,35 +106,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($detailtiket as $item)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Nadhif</td>
-                        <td>089505531958</td>
-                        <td>dsa</td>
-                        <td>dsa</td>
-                        <td>ds</td>
-                        <td>ds</td>
+                        <th>{{( $loop->iteration)}}</th>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->nomortelepon}}</td>
+                        <td>{{$item->alamat}}</td>
+                        <td>{{$item->tanggalpembelian}}</td>
+                        <td>{{$item->jumlahtiket}}</td>
+                        <td>{{$item->namarekeningpengirim}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Nadhif</td>
-                        <td>089505531958</td>
-                        <td>dsa</td>
-                        <td>dsa</td>
-                        <td>ds</td>
-                        <td>ds</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Nadhif</td>
-                        <td>089505531958</td>
-                        <td>dsa</td>
-                        <td>dsa</td>
-                        <td>ds</td>
-                        <td>ds</td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
+
             </table>
         </div>
 

@@ -42,5 +42,5 @@ Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::resource('pemesanantiket', 'PemesananTiketController');
     // Route::get('/pembayarantiket', 'PembayaranTiketController@index');
     Route::resource('pembayarantiket', 'PembayaranTiketController');
-    Route::get('/detailtiket', 'DetailTiketController@index');
+    Route::resource('detailtiket', 'DetailTiketController');
 });
