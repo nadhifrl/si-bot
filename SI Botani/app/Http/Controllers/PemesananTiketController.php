@@ -15,7 +15,12 @@ class PemesananTiketController extends Controller
      */
     public function index()
     {
-        return view('pengunjung.pemesanantiket');
+        // return view('pengunjung.pemesanantiket');
+        $user = Auth::user();
+        $pemesanantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
+        // dd($pembayarantiket);
+        // dd($pembayarantiket);
+        return view('pengunjung.pemesanantiket')->with('pemesanantiket', $pemesanantiket);
     }
 
     /**
@@ -36,38 +41,36 @@ class PemesananTiketController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+                'nomortelepon' => ['required', 'min:11', 'max:13'],
+                'alamat' => 'required',
+
+            ],
+            [
+                'nomortelepon.min' => 'Minimal harus 11 nomor',
+                'nomortelepon.max' => 'Maksimal harus 13 nomor',
+            ]
+        );
 
         $user = Auth::user();
-        // Tiket::create([
-        //     'user_id' => $user->id,
-        //     'name' => $request->name,
-        //     'nomortelepon' => $request->nomortelepon,
-        //     'alamat' => $request->alamat,
-        //     'tanggalpembelian' => $request->tanggalpembelian,
-        //     'jumlahtiket' => $request->jumlahtiket,
-        //     'totalharga' => $request->totalharga,
-        //     'status' => "Menunggu"
-        // ]);
-
-        if($pemesanantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first()){
+        if ($pemesanantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first()) {
             return redirect()->route('pemesanantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
-        }
-        
-        else{
+        } else {
             Tiket::create([
-            'user_id' => $user->id,
-            'name' => $request->name,
-            'nomortelepon' => $request->nomortelepon,
-            'alamat' => $request->alamat,
-            'tanggalpembelian' => $request->tanggalpembelian,
-            'jumlahtiket' => $request->jumlahtiket,
-            'totalharga' => $request->totalharga,
-            'status' => "Menunggu"
-        ]);
-
+                'user_id' => $user->id,
+                'name' => $request->name,
+                'nomortelepon' => $request->nomortelepon,
+                'alamat' => $request->alamat,
+                'tanggalpembelian' => $request->tanggalpembelian,
+                'jumlahtiket' => $request->jumlahtiket,
+                'totalharga' => $request->totalharga,
+                'status' => "Menunggu"
+            ]);
         }
         return redirect()->route('pembayarantiket.index');
-        
     }
 
     /**
@@ -101,7 +104,12 @@ class PemesananTiketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
+        $pembayarantiket->update([
+            'status' => "Proses"
+        ]);
+        return redirect()->route('detailtiket.index');
     }
 
     /**

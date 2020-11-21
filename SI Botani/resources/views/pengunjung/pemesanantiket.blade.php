@@ -65,7 +65,7 @@
                     <li class="sidebar-nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            {{ __('Sign out') }}
+                            {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -102,30 +102,35 @@
                             @method('POST')
                             @csrf
                             <div class="col-lg-20 ftco-animate p-md-20">
-                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Harga Rp. 20.000,00)</h4>
+                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Harga Rp. 20.000)</h4>
 
                                 <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
-                                @if (session('status'))
-                                <div class="alert alert-danger">
-                                {{ session('status')}}
-                                </div>
-                                @endif
+                                    @if (session('status'))
+                                    <div class="alert alert-danger">
+                                        {{ session('status')}}
+                                    </div>
+                                    @endif
                                     <div class="row align-items-end">
-                                        <div class="col-md-6">
+                                        <div class="col-md-10">
                                             <div class="form-group">
                                                 <label for="name">Nama</label>
                                                 <input type="text" class="form-control" name="name" required>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="total_pembayaran">Nomor telepon</label>
-                                                <input type="number" class="form-control" name="nomortelepon" required>
+                                                <input type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" required>
+                                                @error('nomortelepon')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <p>Alamat</p>
-                                            <input type="text" class="form-control" name="alamat" required>
+                                            <textarea type="text" class="form-control" name="alamat" required></textarea>
                                         </div>
                                         <div class="col-md-5" style="padding-top:10px">
                                             <div class="form-group">

@@ -48,13 +48,23 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'alamat' => ['required', 'string', 'max:255'],
-            'nomortelepon' => ['required', 'digits:13'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return Validator::make(
+            $data,
+            [
+                'name' => ['required', 'string', 'max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'alamat' => ['required', 'string', 'max:255'],
+                'nomortelepon' => ['required', 'min:11', 'max:13'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ],
+
+            [
+                'name.unique' => 'Username sudah terdaftar',
+                'email.unique' => 'E-Mail Address sudah terdaftar',
+                'nomortelepon.min' => 'Minimal harus 11 nomor',
+                'nomortelepon.max' => 'Maksimal harus 13 nomor',
+            ]
+        );
     }
 
     /**
