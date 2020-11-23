@@ -12,6 +12,6 @@ class Tiket extends Model
     }
 
     public $timestamps = false;
-    protected $table = 'tiket';
+    protected $table = 'pemesanantiket';
     protected $guarded = [];
 }
