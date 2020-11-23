@@ -36,7 +36,7 @@ class HomeController extends Controller
 
     public function admin()
     {
-        return view('admin.home');
+        return view('admin.dashboardAdmin');
     }
 
     public function pengunjung()

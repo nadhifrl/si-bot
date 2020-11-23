@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::get('/sarana', 'SaranaController@index');
     Route::resource('sarana', 'SaranaController');
     Route::resource('jadwal', 'JadwalController');
+    Route::resource('verifikasi', 'VerifikasiController');
 });
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {

@@ -14,8 +14,8 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        $jadwal=Jadwal::latest()->get();
-        return view ('admin.jadwal.index', compact('jadwal'));
+        $jadwal = Jadwal::latest()->get();
+        return view('admin.jadwal.index', compact('jadwal'));
     }
 
     /**
@@ -25,7 +25,6 @@ class JadwalController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -47,8 +46,8 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        $jadwal= Jadwal::find($id);
-        return view('admin.jadwal.detail',compact('jadwal'));
+        $jadwal = Jadwal::find($id);
+        return view('admin.jadwal.detail', compact('jadwal'));
     }
 
     /**
@@ -59,8 +58,8 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        $jadwal= Jadwal::find($id);
-        return view('admin.jadwal.edit',compact('jadwal'));
+        $jadwal = Jadwal::find($id);
+        return view('admin.jadwal.edit', compact('jadwal'));
     }
 
     /**
@@ -72,7 +71,7 @@ class JadwalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jadwal= Jadwal::find($id);
+        $jadwal = Jadwal::find($id);
         $jadwal->update($request->all());
         return redirect()->route('jadwal.index');
     }

@@ -105,11 +105,11 @@ class PemesananTiketController extends Controller
     public function update(Request $request, $id)
     {
         $user = Auth::user();
-        $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
+        $pembayarantiket = Tiket::find($id);
         $pembayarantiket->update([
-            'status' => "Proses"
+            'status' => "Gagal"
         ]);
-        return redirect()->route('detailtiket.index');
+        return redirect()->route('verifikasi.index');
     }
 
     /**

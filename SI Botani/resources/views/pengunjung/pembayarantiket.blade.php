@@ -183,8 +183,8 @@
             </div>
         </div>
         <div class="row justify-content-center no-gutters  " style="margin-top:40px;">
-            <form action="{{route('pembayarantiket.store',$pembayarantiket->id)}}" enctype="multipart/form-data" method="POST">
-                @method('POST')
+            <form action="{{route('pembayarantiket.update',$pembayarantiket->id)}}" enctype="multipart/form-data" method="POST">
+                @method('PUT')
                 @csrf
                 <div class="col-md-1 col-lg-6 mx-auto">
                     <div class="card bg-white">
@@ -203,8 +203,8 @@
                                         <label>Bank Tujuan</label>
                                         <br>
                                         <select name="bank">
-                                            <option value='mandiri'>Mandiri-Si Bot-1430005516248</option>
-                                            <option value='bca'>BCA-Si Bot-408999872778</option>
+                                            <option value='Mandiri'>Mandiri-Si Bot-1430005516248</option>
+                                            <option value='Bca'>BCA-Si Bot-408999872778</option>
                                         </select>
                                     </div>
                                     <div class="col-md-11" style="margin-top:10px">
