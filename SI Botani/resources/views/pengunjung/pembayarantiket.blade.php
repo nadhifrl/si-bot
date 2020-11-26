@@ -109,7 +109,7 @@
                                 @endif
                                 <div class="form-group  col-md-11">
                                     <label>Nama</label>
-                                    <label class=" form-control form-group">{{$pembayarantiket->name}}</label>
+                                    <label class=" form-control form-group">{{$pembayarantiket->namapemesan}}</label>
                                 </div>
                                 <div class="form-group  col-md-4">
                                     <label>Nomor Telepon</label>
@@ -135,7 +135,6 @@
                                 <table class="table form-group col-md-9" style="margin-left: 15px;">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th scope="col">Harga Tiket</th>
                                             <th scope="col">Jumlah Tiket</th>
                                             <th scope="col">Total Pembayaran</th>
 
@@ -143,7 +142,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Rp. 20.000</td>
                                             <td>{{$pembayarantiket->jumlahtiket}}</td>
                                             <td>Rp. {{number_format($pembayarantiket->totalharga, 0, ',', '.')}}</td>
                                         </tr>
@@ -183,8 +181,8 @@
             </div>
         </div>
         <div class="row justify-content-center no-gutters  " style="margin-top:40px;">
-            <form action="{{route('pembayarantiket.update',$pembayarantiket->id)}}" enctype="multipart/form-data" method="POST">
-                @method('PUT')
+            <form action="{{route('pembayarantiket.store',$pembayarantiket->id)}}" enctype="multipart/form-data" method="POST">
+                @method('POST')
                 @csrf
                 <div class="col-md-1 col-lg-6 mx-auto">
                     <div class="card bg-white">
@@ -192,19 +190,18 @@
                             <h5 class="text-center font-weight-bold text-primary">Melakukan Pembayaran</h5>
                         </div>
                         <div class="card-body">
-                            @if (session('status'))
-                            <div class="alert alert-danger">
-                                {{ session('status')}}
-                            </div>
-                            @endif
                             <form style="margin-left:30px;margin-top:10px">
                                 <div class="row align-items-end" style="margin-left:10px;">
+                                    <div class="col-md-11" style="margin-top:10px">
+                                        <!-- <label>ID</label> -->
+                                        <input type="text" class="form-control" name="pemesanantiket_id" value="{{$pembayarantiket->id}}" required hidden>
+                                    </div>
                                     <div class=" col-md-6">
                                         <label>Bank Tujuan</label>
                                         <br>
                                         <select name="bank">
                                             <option value='Mandiri'>Mandiri-Si Bot-1430005516248</option>
-                                            <option value='Bca'>BCA-Si Bot-408999872778</option>
+                                            <option value='BCA'>BCA-Si Bot-408999872778</option>
                                         </select>
                                     </div>
                                     <div class="col-md-11" style="margin-top:10px">

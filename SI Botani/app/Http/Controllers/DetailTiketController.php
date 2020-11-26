@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\PemesananTiket;
+use App\PembayaranTiket;
 use Illuminate\Http\Request;
 use App\Tiket;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class DetailTiketController extends Controller
@@ -16,24 +19,20 @@ class DetailTiketController extends Controller
      */
     public function index()
     {
-        //return view('pengunjung.detailtiket');
-        // $user = Auth::user();
-        // $detailtiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first();
-        // $detailtiket = Tiket::latest()->get();
-        // dd($pembayarantiket);
-        // dd($pembayarantiket);
-        // return view('pengunjung.detailtiket', compact('detailtiket'));
-        // dd($pembayarantiket);
-        // dd($pembayarantiket);
+
         $user = Auth::user();
-        // $detailtiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first();
-        // return view('pengunjung.detailtiket')->with('detailtiket', $detailtiket);
-        $detailtiket = Tiket::all();
-        $detailtiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first();
-        return view('pengunjung.detailtiket')->with('detailtiket', $detailtiket);
-        // return view('pengunjung.detailtiket', compact('pemesanantiket'));
-        // return view('pengunjung.detailtiket')->with('detailtiket', $detailtiket);
+        // $detailtiket = PemesananTiket::orderBy('id', 'DESC')->where('user_id', $user->id)->get();
+        $detailtiket = DB::table('users')
+            ->join('pemesanantiket', 'pemesanantiket.user_id', 'users.id')
+            ->join('pembayarantiket', 'pembayarantiket.pemesanantiket_id', 'pemesanantiket.id')
+            ->select('pemesanantiket.*', 'pembayarantiket.status')
+            ->orderBy('id', 'DESC')
+            ->where('user_id', $user->id)
+            ->get();
+        // dd($detailtiket);
+        return view('pengunjung.detailtiket', compact('detailtiket'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +63,8 @@ class DetailTiketController extends Controller
      */
     public function show($id)
     {
-        //
+        $detailtiket = PemesananTiket::find($id);
+        return view('pengunjung.cetaktiket', compact('detailtiket'));
     }
 
     /**

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Pembayaran;
+use App\PembayaranTiket;
 use Storage;
-use App\Tiket;
+use App\PemesananTiket;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -18,7 +18,7 @@ class PembayaranTiketController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $pembayarantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
+        $pembayarantiket = PemesananTiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
         // dd($pembayarantiket);
         // dd($pembayarantiket);
         return view('pengunjung.pembayarantiket')->with('pembayarantiket', $pembayarantiket);
@@ -48,22 +48,30 @@ class PembayaranTiketController extends Controller
             'gambar' => 'mimes:jpg,jpeg,bpm,png',
 
         ]);
-        $user = Auth::user();
-        if ($pembayarantiket = Tiket::where('user_id', $user->id)->where('status', 'Proses')->first()) {
-            return redirect()->route('pembayarantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
-        } else {
-            $image = $request->file('gambar')->store('pembayarantiket');
-            Tiket::create([
-                'bank' => $request->bank,
-                'namarekeningpengirim' => $request->namarekeningpengirim,
-                'nomorrekening' => $request->nomorrekening,
-                'gambar' => $image,
-                'status' => "Proses"
-            ]);
+        // // $user = Auth::user();
+        // $pemesanantiket = Tiket::create($request->all());
+        // if ($pembayarantiket = Pembayaran::where('pemesanantiket_id', $pemesanantiket->id)->where('status', 'Proses')->first()) {
+        //     return redirect()->route('pembayarantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
+        // } else {
+        $image = $request->file('gambar')->store('pembayarantiket');
+        PembayaranTiket::create([
+            'pemesanantiket_id' => $request->pemesanantiket_id,
+            'bank' => $request->bank,
+            'namarekeningpengirim' => $request->namarekeningpengirim,
+            'nomorrekening' => $request->nomorrekening,
+            'gambar' => $image,
+            'status' => "Proses"
+        ]);
 
-            return redirect()->route('detailtiket.index');
-        }
+        $user = Auth::user();
+        $pembayarantiket = PemesananTiket::where('user_id', $user->id);
+        $pembayarantiket->update([
+            'status' => "Proses"
+        ]);
+
+        return redirect()->route('detailtiket.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -103,11 +111,12 @@ class PembayaranTiketController extends Controller
             'gambar' => 'mimes:jpg,jpeg,bpm,png',
 
         ]);
-        $user = Auth::user();
+
         // if ($pembayarantiket = Pemesanan::where('user_id', $user->id)->where('status', 'Proses')->first()) {
         //     return redirect()->route('pembayarantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
         // } else {
-        $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
+        $user = Auth::user();
+        $pembayarantiket = PemesananTiket::where('user_id', $user->id)->find($id);
         $image = $request->file('gambar')->store('pembayarantiket');
         $pembayarantiket->update([
             'bank' => $request->bank,
@@ -141,7 +150,7 @@ class PembayaranTiketController extends Controller
     public function destroy($id)
     {
         $user = Auth::user();
-        $pembayarantiket = Tiket::where('user_id', $user->id)->find($id);
+        $pembayarantiket = PemesananTiket::where('user_id', $user->id)->find($id);
         $pembayarantiket->delete();
         return redirect()->route('pemesanantiket.index');
     }

@@ -30,7 +30,10 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::get('/sarana', 'SaranaController@index');
     Route::resource('sarana', 'SaranaController');
     Route::resource('jadwal', 'JadwalController');
+    Route::resource('harga', 'HargaController');
     Route::resource('verifikasi', 'VerifikasiController');
+    Route::resource('laporanpemesanan', 'LaporanHistoryPemesananController');
+    Route::resource('laporanpembayaran', 'LaporanHistoryPembayaranController');
 });
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
@@ -44,4 +47,6 @@ Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     // Route::get('/pembayarantiket', 'PembayaranTiketController@index');
     Route::resource('pembayarantiket', 'PembayaranTiketController');
     Route::resource('detailtiket', 'DetailTiketController');
+    Route::resource('cetaktiket', 'CetakTiketController');
+    Route::resource('lihatdatatiket', 'LihatDataTiketController');
 });

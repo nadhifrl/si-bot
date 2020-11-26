@@ -102,7 +102,7 @@
                             @method('POST')
                             @csrf
                             <div class="col-lg-20 ftco-animate p-md-20">
-                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Harga Rp. 20.000)</h4>
+                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu </h4>
 
                                 <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
                                     @if (session('status'))
@@ -114,7 +114,7 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <label for="name">Nama</label>
-                                                <input type="text" class="form-control" name="name" required>
+                                                <input type="text" class="form-control" name="namapemesan" required>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
@@ -142,8 +142,10 @@
                                                     <label>Jumlah Tiket</label>
                                                     <input type="number" step="any" min="1" name="jumlahtiket" id="jumlahtiket" class="form-control" required>
                                                 </div>
-
-                                                <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
+                                                @foreach ($harga as $a)
+                                                <input type="number" step="any" name="harga" id="harga" class="form-control" value="{{$a->harga}}" Readonly hidden></input>
+                                                @endforeach
+                                                <!-- <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly></input> -->
 
                                                 <div class="col-md-0">
                                                     <div class="form-group">

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>SB Admin</title>
     <link href="{{asset('developer/css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('developer/fonts/font-awesome.min.css') }}">
     <!-- Ionicons -->
@@ -58,8 +58,10 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link collapsed" href="{{ route('harga.index') }}">Harga Tiket</a>
                                 <a class="nav-link collapsed" href="{{ route('verifikasi.index') }}">Verifikasi Tiket</a>
-                                <a class="nav-link collapsed" href="">Detail Tiket Pembelian</a>
+                                <a class="nav-link collapsed" href="{{ route('laporanpemesanan.index') }}">Laporan History Pemesanan</a>
+                                <a class="nav-link collapsed" href="{{ route('laporanpembayaran.index') }}">Laporan History Pembayaran</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tiket;
+use App\PemesananTiket;
+use App\Harga;
 use Auth;
 
 class PemesananTiketController extends Controller
@@ -17,10 +18,11 @@ class PemesananTiketController extends Controller
     {
         // return view('pengunjung.pemesanantiket');
         $user = Auth::user();
-        $pemesanantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
+        $harga = Harga::all();
+        $pemesanantiket = PemesananTiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
         // dd($pembayarantiket);
         // dd($pembayarantiket);
-        return view('pengunjung.pemesanantiket')->with('pemesanantiket', $pemesanantiket);
+        return view('pengunjung.pemesanantiket', compact('harga'))->with('pemesanantiket', $pemesanantiket);
     }
 
     /**
@@ -44,7 +46,7 @@ class PemesananTiketController extends Controller
         $this->validate(
             $request,
             [
-                'name' => 'required',
+                'namapemesan' => 'required',
                 'nomortelepon' => ['required', 'min:11', 'max:13'],
                 'alamat' => 'required',
 
@@ -56,12 +58,12 @@ class PemesananTiketController extends Controller
         );
 
         $user = Auth::user();
-        if ($pemesanantiket = Tiket::where('user_id', $user->id)->where('status', 'Menunggu')->first()) {
+        if ($pemesanantiket = PemesananTiket::where('user_id', $user->id)->where('status', 'Menunggu')->first()) {
             return redirect()->route('pemesanantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
         } else {
-            Tiket::create([
+            PemesananTiket::create([
                 'user_id' => $user->id,
-                'name' => $request->name,
+                'namapemesan' => $request->namapemesan,
                 'nomortelepon' => $request->nomortelepon,
                 'alamat' => $request->alamat,
                 'tanggalpembelian' => $request->tanggalpembelian,
@@ -105,7 +107,7 @@ class PemesananTiketController extends Controller
     public function update(Request $request, $id)
     {
         $user = Auth::user();
-        $pembayarantiket = Tiket::find($id);
+        $pembayarantiket = PemesananTiket::find($id);
         $pembayarantiket->update([
             'status' => "Gagal"
         ]);
@@ -120,7 +122,7 @@ class PemesananTiketController extends Controller
      */
     public function destroy($id)
     {
-        $pemesanantiket = Tiket::find($id);
+        $pemesanantiket = PemesananTiket::find($id);
         if (!$pemesanantiket) {
             return redirect()->back();
         }

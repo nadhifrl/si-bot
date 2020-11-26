@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('detailtiket.index')}}">Detail Tiket</a></li>
                     <li class="sidebar-nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -92,34 +92,46 @@
     <!-- Signup-->
     <section class="projects-section bg-white" id="tiket">
 
-        <div class="container">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Nomor</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Nomor Telepon</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Jumlah Tiket</th>
-                        <th scope="col">Total Bayar</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($detailtiket as $item)
-                    <tr>
-                        <th>{{( $loop->iteration)}}</th>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->nomortelepon}}</td>
-                        <td>{{$item->alamat}}</td>
-                        <td>{{$item->tanggalpembelian}}</td>
-                        <td>{{$item->jumlahtiket}}</td>
-                        <td>{{$item->namarekeningpengirim}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
+        <table class="table col-lg-11" style="margin-left: 60px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nomor</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Nomor Telepon</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Tanggal Pembelian</th>
+                    <th scope="col">Jumlah Tiket</th>
+                    <th scope="col">Total Pembayaran</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($detailtiket as $item)
+                <tr>
+                    <th>{{( $loop->iteration)}}</th>
+                    <td>{{str_limit($item->namapemesan, 15, '...')}}</td>
+                    <td>{{$item->nomortelepon}}</td>
+                    <td>{{$item->alamat}}</td>
+                    <td>{{$item->tanggalpembelian}}</td>
+                    <td>{{$item->jumlahtiket}}</td>
+                    <td>{{$item->totalharga}}</td>
+                    <td>{{$item->status}}</td>
+                    <td><a href="{{route('lihatdatatiket.show',$item->id)}}">Lihat Data</a>
+                        @if($item->status == 'Sukses')
+                        <p class="d-inline">|</p>
+                        <div style=" margin-top: 5px;" class="d-inline">
+                            <a href="{{route('cetaktiket.show',$item->id)}}" target="_blank"><i class="fas fa-print"></i> Cetak Data</a>
+                        </div>
+                        @endif
+                    </td>
 
-            </table>
+
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table>
         </div>
 
     </section>

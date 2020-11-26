@@ -23,7 +23,7 @@
           @csrf
           <div class="form-group">
             <label>Jadwal</label>
-            <input type="text" class="form-control" name="jadwal" placeholder="Isi Jadwal" value="{{$jadwal->jadwal}}" required>
+            <textarea type="text" class="form-control" name="jadwal" placeholder="Isi Jadwal" required>{!! $jadwal->jadwal !!}</textarea>
           </div>
 
           <div class="form-group">
