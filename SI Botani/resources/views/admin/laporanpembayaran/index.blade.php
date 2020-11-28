@@ -4,7 +4,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Laporan Pembelian Tiket</h1>
+            <h1 class="mt-4">Laporan Pembayaran</h1>
             <ol class="breadcrumb mb-4" style="margin-top:30px">
                 <li class="breadcrumb-item active">History Pembayaran</li>
             </ol>

@@ -26,14 +26,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::get('/admin', 'HomeController@admin');
-    Route::get('/verifikasi', 'HomeController@verifikasi');
-    Route::get('/sarana', 'SaranaController@index');
+    // Route::get('/verifikasi', 'HomeController@verifikasi');
+    // Route::get('/sarana', 'SaranaController@index');
     Route::resource('sarana', 'SaranaController');
     Route::resource('jadwal', 'JadwalController');
     Route::resource('harga', 'HargaController');
     Route::resource('verifikasi', 'VerifikasiController');
     Route::resource('laporanpemesanan', 'LaporanHistoryPemesananController');
     Route::resource('laporanpembayaran', 'LaporanHistoryPembayaranController');
+    Route::resource('lonjakanpengunjung', 'LonjakanPengunjungController');
+    Route::get('/lonjakanpengunjung', 'LonjakanPengunjungController@peramalan');
 });
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {

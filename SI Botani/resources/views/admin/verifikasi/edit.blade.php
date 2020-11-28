@@ -10,9 +10,9 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Verifikasi</h1>
+            <h1 class="mt-4">Memverifikasi Data Pembayaran Tiket</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Memverifikasi</li>
+                <li class="breadcrumb-item active">Verifikasi</li>
             </ol>
             <div class="box-header">
             </div>

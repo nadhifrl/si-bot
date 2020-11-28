@@ -59,9 +59,9 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link collapsed" href="{{ route('harga.index') }}">Harga Tiket</a>
-                                <a class="nav-link collapsed" href="{{ route('verifikasi.index') }}">Verifikasi Tiket</a>
-                                <a class="nav-link collapsed" href="{{ route('laporanpemesanan.index') }}">Laporan History Pemesanan</a>
-                                <a class="nav-link collapsed" href="{{ route('laporanpembayaran.index') }}">Laporan History Pembayaran</a>
+                                <a class="nav-link collapsed" href="{{ route('verifikasi.index') }}">Memverifikasi Data Pembayaran Tiket</a>
+                                <a class="nav-link collapsed" href="{{ route('laporanpemesanan.index') }}">Laporan Pemesanan</a>
+                                <a class="nav-link collapsed" href="{{ route('laporanpembayaran.index') }}">Laporan Pembayaran</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -76,7 +76,7 @@
                                 <a class="nav-link collapsed" href="{{ route('jadwal.index') }}">Jadwal</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="{{url('lonjakanpengunjung')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Lonjakan Pengunjung
                         </a>
@@ -102,6 +102,8 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('developer/assets/demo/datatables-demo.js')}}"></script>
+
+        @yield('footer')
 </body>
 
 </html>

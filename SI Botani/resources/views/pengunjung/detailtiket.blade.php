@@ -92,7 +92,7 @@
     <!-- Signup-->
     <section class="projects-section bg-white" id="tiket">
 
-        <table class="table col-lg-11" style="margin-left: 60px;">
+        <!-- <table class="table col-lg-11" style="margin-left: 60px;">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Nomor</th>
@@ -110,12 +110,6 @@
                 @foreach ($detailtiket as $item)
                 <tr>
                     <th>{{( $loop->iteration)}}</th>
-                    <td>{{str_limit($item->namapemesan, 15, '...')}}</td>
-                    <td>{{$item->nomortelepon}}</td>
-                    <td>{{$item->alamat}}</td>
-                    <td>{{$item->tanggalpembelian}}</td>
-                    <td>{{$item->jumlahtiket}}</td>
-                    <td>{{$item->totalharga}}</td>
                     <td>{{$item->status}}</td>
                     <td><a href="{{route('lihatdatatiket.show',$item->id)}}">Lihat Data</a>
                         @if($item->status == 'Sukses')
@@ -131,8 +125,48 @@
                 @endforeach
             </tbody>
 
+        </table> -->
+        <table class="table col-lg-11" style="margin-left: 60px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Gambar</th>
+                    <th scope="col">Bank</th>
+                    <th scope="col">Nama Rekening</th>
+                    <th scope="col">Nomor Rekening</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($detailtiket as $item)
+                <tr>
+                    <td>{{( $loop->iteration)}}</td>
+                    <td style="margin-right:auto"><img src="{{asset('uploads/'.$item->gambar)}}" width="50px" height="50px"></td>
+                    <td>{{$item->bank}}</td>
+
+                    <td>{{str_limit($item->namarekeningpengirim, 20, '...')}}</td>
+                    <td>{{str_limit($item->nomorrekening, 10, '...')}}</td>
+                    <td>{{$item->status}}</td>
+
+
+
+                    <td><a href="{{route('lihatdatatiket.show',$item->id)}}">Lihat Data</a>
+                        @if($item->status == 'Sukses')
+                        <p class="d-inline">|</p>
+                        <div style=" margin-top: 5px;" class="d-inline">
+                            <a href="{{route('cetaktiket.show',$item->id)}}" target="_blank"><i class="fas fa-print"></i> Cetak Data</a>
+                        </div>
+                        @endif
+                    </td>
+
+
+                </tr>
+                @endforeach
+            </tbody>
+
         </table>
-        </div>
+
 
     </section>
 

@@ -61,6 +61,7 @@ class PembayaranTiketController extends Controller
             'nomorrekening' => $request->nomorrekening,
             'gambar' => $image,
             'status' => "Proses"
+        
         ]);
 
         $user = Auth::user();
@@ -105,12 +106,18 @@ class PembayaranTiketController extends Controller
     public function update(Request $request, $id)
     {
 
-        $this->validate($request, [
-            'namarekeningpengirim' => 'required',
-            'nomorrekening' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,bpm,png',
+        $this->validate(
+            $request,
+            [
+                'namarekeningpengirim' => 'required',
+                'nomorrekening' => 'required',
+                'gambar' => ['mimes:jpg,jpeg,bpm,png'],
 
-        ]);
+            ]
+            // [
+            //     'gambar.mimes' => 'Minimal harus 11 nomor',
+            // ]
+        );
 
         // if ($pembayarantiket = Pemesanan::where('user_id', $user->id)->where('status', 'Proses')->first()) {
         //     return redirect()->route('pembayarantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');

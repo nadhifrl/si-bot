@@ -8,7 +8,6 @@ class PembayaranTiket extends Model
 {
 
 
-    public $timestamps = false;
     protected $table = 'pembayarantiket';
     protected $guarded = [];
 

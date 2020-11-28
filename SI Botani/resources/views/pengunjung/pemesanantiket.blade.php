@@ -102,7 +102,7 @@
                             @method('POST')
                             @csrf
                             <div class="col-lg-20 ftco-animate p-md-20">
-                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu </h4>
+                                <h4 class="text-center font-weight-bold text-primary card-header">Pesan Tiketmu (Rp. 20.000)</h4>
 
                                 <div class="billing-form ftco-bg-dark p-3 p-md-5" style="margin-top:-10px">
                                     @if (session('status'))

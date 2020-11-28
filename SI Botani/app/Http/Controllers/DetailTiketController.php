@@ -25,7 +25,7 @@ class DetailTiketController extends Controller
         $detailtiket = DB::table('users')
             ->join('pemesanantiket', 'pemesanantiket.user_id', 'users.id')
             ->join('pembayarantiket', 'pembayarantiket.pemesanantiket_id', 'pemesanantiket.id')
-            ->select('pemesanantiket.*', 'pembayarantiket.status')
+            ->select('pembayarantiket.*')
             ->orderBy('id', 'DESC')
             ->where('user_id', $user->id)
             ->get();

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\App;
 class PemesananTiket extends Model
 {
     protected $table = 'pemesanantiket';
-    public $timestamps = false;
     protected $guarded = [];
 
     public function pembayarantiket()

@@ -4,7 +4,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Verifikasi Tiket</h1>
+            <h1 class="mt-4">Memverifikasi Data Pembayaran Tiket</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Verifikasi</li>
             </ol>
@@ -14,7 +14,7 @@
                         <tr>
 
                             <th>No</th>
-                            <th>Nama User</th>
+                            <th>Nama Pengunjung</th>
                             <th>Gambar</th>
                             <th>Bank</th>
                             <th>Nama Rekening</th>
@@ -38,7 +38,7 @@
                             <td>
 
                                 <a href="{{route('verifikasi.show',$item->id)}}">
-                                    <button type="submit" class="btn btn-success">Detail Tiket</button>
+                                    <button type="submit" class="btn btn-success">Detail</button>
                                 </a>
                                 @if($item->status == 'Proses')
                                 <a href="{{route('verifikasi.edit',$item->id)}}" class="btn btn-primary">Verifikasi</a>

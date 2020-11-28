@@ -200,8 +200,8 @@
                                         <label>Bank Tujuan</label>
                                         <br>
                                         <select name="bank">
-                                            <option value='Mandiri'>Mandiri-Si Bot-1430005516248</option>
-                                            <option value='BCA'>BCA-Si Bot-408999872778</option>
+                                            <option value='Mandiri-Si Bot-1430005516248'>Mandiri-Si Bot-1430005516248</option>
+                                            <option value='BCA-Si Bot-408999872778'>BCA-Si Bot-408999872778</option>
                                         </select>
                                     </div>
                                     <div class="col-md-11" style="margin-top:10px">
@@ -213,8 +213,13 @@
                                         <input type="number" class="form-control" name="nomorrekening" required>
                                     </div>
                                     <div class="col-md-10" style="margin-top:15px">
-                                        <label @error('gambar') class="text-danger" @enderror>Gambar @error('gambar')| {{$message}} @enderror</label>
-                                        <input type="file" class="form-control" name="gambar" required>
+                                        <label>Gambar</label>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" required>
+                                        @error('gambar')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
 
                                     <div style="margin-top:20px;margin-left:15px">

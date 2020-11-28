@@ -101,41 +101,31 @@
                             <h5 class="text-center font-weight-bold text-primary">Detail Tiket Pesanan</h5>
                         </div>
                         <div class="card-body">
-                            <form style="margin-left:10px;margin-top:10px">
-                                <div class="form-group  col-md-11">
-                                    <label>Nama</label>
-                                    <label class=" form-control form-group">{{$pemesanan->namapemesan}}</label>
-                                </div>
-                                <div class="form-group  col-md-4">
-                                    <label>Nomor Telepon</label>
-                                    <label class="form-control form-group ">{{$pemesanan->nomortelepon}}</label>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label>Alamat</label>
-                                    <textarea class="form-control form-group  " readonly>{{$pemesanan->alamat}}</textarea>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label>Tanggal Pemakaian Tiket</label>
-                                    <label class="form-control form-group ">{{$pemesanan->tanggalpembelian}}</label>
-                                </div>
-                                <table class="table form-group col-md-9" style="margin-left: 15px;">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th scope="col">Jumlah Tiket</th>
-                                            <th scope="col">Total Pembayaran</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{$pemesanan->jumlahtiket}}</td>
-                                            <td>Rp. {{number_format($pemesanan->totalharga, 0, ',', '.')}}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                                <div style="margin-left:20px">
-                                    <a href="{{route('detailtiket.index')}}" class="btn btn-primary" style="margin-top: 10px">Kembali</a>
+                            <form style="margin-left:30px;margin-top:10px">
+                                <div class="row align-items-end" style="margin-left:10px;">
+                                    <div class="col-md-11" style="margin-top:10px">
+                                        <!-- <label>ID</label> -->
+                                        <input type="text" class="form-control" name="pemesanantiket_id" value="" required hidden>
+                                    </div>
+                                    <div class=" col-md-7">
+                                        <label>Bank Tujuan</label>
+                                        <label type="text" class="form-control" name="namarekeningpengirim" required>{{$pembayaran->bank}}</label>
+                                    </div>
+                                    <div class="col-md-11" style="margin-top:10px">
+                                        <label>Nama Rekening Pengirim</label>
+                                        <label type="text" class="form-control" name="namarekeningpengirim" required>{{$pembayaran->namarekeningpengirim}}</label>
+                                    </div>
+                                    <div class=" col-md-6" style="margin-top:10px">
+                                        <label>No. Rekening Pengirim</label>
+                                        <label type="text" class="form-control" name="namarekeningpengirim" required>{{$pembayaran->nomorrekening}}</label>
+                                    </div>
+                                    <div class="col-md-10" style="margin-top:15px">
+                                        <h1 style="text-align: center;">Gambar</h1>
+                                        <img class="img-fluid mb-5 mb-lg-0" style="margin-top:30px" src="{{asset('uploads/'.$pembayaran->gambar)}}" alt="" />
+                                    </div>
+                                    <div style="margin-left:20px">
+                                        <a href="{{route('detailtiket.index')}}" class="btn btn-primary" style="margin-top: 40px">Kembali</a>
+                                    </div>
                                 </div>
                             </form>
                         </div>
