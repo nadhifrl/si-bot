@@ -61,7 +61,7 @@ class PembayaranTiketController extends Controller
             'nomorrekening' => $request->nomorrekening,
             'gambar' => $image,
             'status' => "Proses"
-        
+
         ]);
 
         $user = Auth::user();

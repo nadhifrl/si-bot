@@ -31,14 +31,14 @@ class LonjakanPengunjungController extends Controller
         $month2 = Carbon::now();
         $month3 = Carbon::now()->addMonthNoOverflow(1);
 
-        $pembayaran = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at',$month)
-        ->get()->all();
-        $pembayaran1 = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at',$month1)
-        ->get()->all();
-        $pembayaran2 = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at',$month2)
-        ->get()->all();
-         $pembayaran3 = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at',$month3)
-        ->get()->all();
+        $pembayaran = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at', $month)
+            ->get()->all();
+        $pembayaran1 = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at', $month1)
+            ->get()->all();
+        $pembayaran2 = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at', $month2)
+            ->get()->all();
+        $pembayaran3 = PembayaranTiket::where('status', 'Sukses')->whereMonth('created_at', $month3)
+            ->get()->all();
 
         $count = count($pembayaran);
 
@@ -48,10 +48,12 @@ class LonjakanPengunjungController extends Controller
 
         $wma = (($count2 * 3)) + (($count1 * 2)) + (($count * 1)) / (6);
 
-// dd($wma)    ;
+        // dd($wma)    ;
 
-        return view('admin.lonjakanpengunjung', compact(['wma', 'count','count1','count2',
-        'month','month1','month2','month3']));
+        return view('admin.lonjakanpengunjung', compact([
+            'wma', 'count', 'count1', 'count2',
+            'month', 'month1', 'month2', 'month3'
+        ]));
     }
 
     /**

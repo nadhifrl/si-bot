@@ -63,8 +63,14 @@ class DetailTiketController extends Controller
      */
     public function show($id)
     {
-        $detailtiket = PemesananTiket::find($id);
-        return view('pengunjung.cetaktiket', compact('detailtiket'));
+        $user = Auth::user();
+        $pemesanan = DB::table('users')
+            ->join('pemesanantiket', 'pemesanantiket.user_id', 'users.id')
+            ->join('pembayarantiket', 'pembayarantiket.pemesanantiket_id', 'pemesanantiket.id')
+            ->select('pemesanantiket.*')
+            ->where('user_id', $user->id)
+            ->get();
+        return view('pengunjung.cetaktiket', compact('pemesanan'));
     }
 
     /**

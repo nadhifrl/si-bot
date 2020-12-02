@@ -61,7 +61,14 @@
                         </div>
                     </div>
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
+                    <div class="dropdown">
+                        <li class="nav-item nav-link js-scroll-trigger">Detail Tiket</li>
+                        <div class="dropdown-content">
+                            <a href="{{route('detailpemesanantiket.index')}}">Detail Pemesanan Tiket</a>
+                            <hr>
+                            <a href="{{route('detailpembayarantiket.index')}}">Detail Pembayaran Tiket</a>
+                        </div>
+                    </div>
                     <li class="sidebar-nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -142,10 +149,10 @@
                                                     <label>Jumlah Tiket</label>
                                                     <input type="number" step="any" min="1" name="jumlahtiket" id="jumlahtiket" class="form-control" required>
                                                 </div>
-                                                @foreach ($harga as $a)
+                                                <!-- @foreach ($harga as $a)
                                                 <input type="number" step="any" name="harga" id="harga" class="form-control" value="{{$a->harga}}" Readonly hidden></input>
-                                                @endforeach
-                                                <!-- <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly></input> -->
+                                                @endforeach -->
+                                                <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly></input>
 
                                                 <div class="col-md-0">
                                                     <div class="form-group">

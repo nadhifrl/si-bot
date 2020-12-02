@@ -19,6 +19,7 @@
                             <th>Bank</th>
                             <th>Nama Rekening</th>
                             <th>Nomor Rekening</th>
+                            <!-- <th>Total Pembayaran</th> -->
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -29,10 +30,11 @@
                             <td>{{( $loop->iteration)}}</td>
                             <td>{{$item->name}}</td>
                             <td><img src="{{asset('uploads/'.$item->gambar)}}" width="50px" height="50px"></td>
-                            <td>{{$item->bank}}</td>
+                            <td>{{str_limit($item->bank, 10, '...')}}</td>
 
                             <td>{{str_limit($item->namarekeningpengirim, 10, '...')}}</td>
                             <td>{{$item->nomorrekening}}</td>
+                            <!-- <td>Rp. {{$item->totalharga}}</td> -->
                             <td>{{$item->status}}</td>
 
                             <td>

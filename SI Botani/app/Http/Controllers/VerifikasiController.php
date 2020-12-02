@@ -24,8 +24,9 @@ class VerifikasiController extends Controller
         $verifikasi = DB::table('users')
             ->join('pemesanantiket', 'pemesanantiket.user_id', 'users.id')
             ->join('pembayarantiket', 'pembayarantiket.pemesanantiket_id', 'pemesanantiket.id')
-            ->select('users.name', 'pembayarantiket.*')
+            ->select('users.name', 'pembayarantiket.*', 'pemesanantiket.totalharga')
             ->get();
+
         return view('admin.verifikasi.index', compact('verifikasi'));
     }
 
@@ -68,6 +69,7 @@ class VerifikasiController extends Controller
         $pembayaran = PembayaranTiket::find($id);
         return view('admin.verifikasi.detail', compact('pemesanan', 'pembayaran'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

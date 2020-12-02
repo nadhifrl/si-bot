@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <h1 class="mt-4">Laporan Pembayaran</h1>
             <ol class="breadcrumb mb-4" style="margin-top:30px">
-                <li class="breadcrumb-item active">History Pembayaran</li>
+                <li class="breadcrumb-item active">Laporan Pembayaran</li>
             </ol>
             <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -14,7 +14,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama User</th>
+                            <th scope="col">Nama Pengunjung</th>
                             <th scope="col">Gambar</th>
                             <th scope="col">Bank</th>
                             <th scope="col">Nama Rekening</th>

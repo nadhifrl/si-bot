@@ -32,8 +32,8 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::resource('jadwal', 'JadwalController');
     Route::resource('harga', 'HargaController');
     Route::resource('verifikasi', 'VerifikasiController');
-    Route::resource('laporanpemesanan', 'LaporanHistoryPemesananController');
-    Route::resource('laporanpembayaran', 'LaporanHistoryPembayaranController');
+    Route::resource('laporanpemesanan', 'LaporanPemesananController');
+    Route::resource('laporanpembayaran', 'LaporanPembayaranController');
     Route::resource('lonjakanpengunjung', 'LonjakanPengunjungController');
     Route::get('/lonjakanpengunjung', 'LonjakanPengunjungController@peramalan');
 });
@@ -49,6 +49,10 @@ Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     // Route::get('/pembayarantiket', 'PembayaranTiketController@index');
     Route::resource('pembayarantiket', 'PembayaranTiketController');
     Route::resource('detailtiket', 'DetailTiketController');
+    Route::resource('detailpemesanantiket', 'DetailPemesananTiketController');
+    Route::resource('detailpembayarantiket', 'DetailPembayaranTiketController');
+    Route::resource('lihatdatapemesanantiket', 'LihatDataPemesananTiketController');
+    Route::resource('lihatdatapembayarantiket', 'LihatDataPembayaranTiketController');
     Route::resource('cetaktiket', 'CetakTiketController');
     Route::resource('lihatdatatiket', 'LihatDataTiketController');
 });

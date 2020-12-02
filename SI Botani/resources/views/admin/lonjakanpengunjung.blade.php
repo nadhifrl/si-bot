@@ -4,9 +4,9 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Lonjakan Pengunjung</h1>
+            <h1 class="mt-4">Total Pengunjung</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Lonjakan Pengunjung</li>
+                <li class="breadcrumb-item active"></li>
             </ol>
             <div class="row">
                 <div class="col-xl-12" style="margin-left: auto; margin-right:auto">
@@ -24,22 +24,16 @@
                         <div class="card-header">
                             <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{date('F', strtotime($month1))}}</div>
                             <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Total : {{$count1}}</div>
-                            Lonjakan Pengunjung
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col-xl-12" style="margin-left: auto; margin-right:auto">
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{date('F', strtotime($month2))}}</div>
                             <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Total : {{$count2}}</div>
-                            Lonjakan Pengunjung
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

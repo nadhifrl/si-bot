@@ -33,7 +33,7 @@
                                     <label type="text" class="form-control" name="namarekeningpengirim" required>{{$pembayaran->nomorrekening}}</label>
                                 </div>
                                 <div class="col-md-10" style="margin-top:15px">
-                                    <h1 style="text-align: center;">Gambar</h1>
+                                    <h1>Gambar</h1>
                                     <img class="img-fluid mb-5 mb-lg-0" style="margin-top:30px" src="{{asset('uploads/'.$pembayaran->gambar)}}" alt="" />
                                 </div>
                                 <div style="margin-left:30px">

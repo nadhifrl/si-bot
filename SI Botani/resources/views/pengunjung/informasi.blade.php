@@ -60,7 +60,14 @@
                         </div>
                     </div>
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
+                    <div class="dropdown">
+                        <li class="nav-item nav-link js-scroll-trigger">Detail Tiket</li>
+                        <div class="dropdown-content">
+                            <a href="{{route('detailpemesanantiket.index')}}">Detail Pemesanan Tiket</a>
+                            <hr>
+                            <a href="{{route('detailpembayarantiket.index')}}">Detail Pembayaran Tiket</a>
+                        </div>
+                    </div>
                     <li class="sidebar-nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">

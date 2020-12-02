@@ -60,8 +60,16 @@
                             <a href="{{route('pembayarantiket.index')}}">Pembayaran Tiket</a>
                         </div>
                     </div>
+                    <div class="dropdown">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('detailtiket.index')}}">Detail Tiket</a></li>
+                        <div class="dropdown-content">
+                            <a href="{{route('detailpemesanantiket.index')}}">Detail Pemesanan Tiket</a>
+                            <hr>
+                            <a href="{{route('detailpembayarantiket.index')}}">Detail Pembayaran Tiket</a>
+                        </div>
+                    </div>
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('detailtiket.index')}}">Detail Tiket</a></li>
+
                     <li class="sidebar-nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -151,11 +159,11 @@
 
 
 
-                    <td><a href="{{route('lihatdatatiket.show',$item->id)}}">Lihat Data</a>
+                    <td><a href="{{route('lihatdatatiket.show',$item->pemesanantiket_id)}}">Lihat Data</a>
                         @if($item->status == 'Sukses')
                         <p class="d-inline">|</p>
                         <div style=" margin-top: 5px;" class="d-inline">
-                            <a href="{{route('cetaktiket.show',$item->id)}}" target="_blank"><i class="fas fa-print"></i> Cetak Data</a>
+                            <a href="{{route('cetaktiket.show',$item->pemesanantiket_id)}}" target="_blank"><i class="fas fa-print"></i> Cetak Data</a>
                         </div>
                         @endif
                     </td>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>SB Admin</title>
+    <title>Si-Bot Admin</title>
     <link href="{{asset('developer/css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('developer/fonts/font-awesome.min.css') }}">
     <!-- Ionicons -->
@@ -58,7 +58,7 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link collapsed" href="{{ route('harga.index') }}">Harga Tiket</a>
+                                <!-- <a class="nav-link collapsed" href="{{ route('harga.index') }}">Harga Tiket</a> -->
                                 <a class="nav-link collapsed" href="{{ route('verifikasi.index') }}">Memverifikasi Data Pembayaran Tiket</a>
                                 <a class="nav-link collapsed" href="{{ route('laporanpemesanan.index') }}">Laporan Pemesanan</a>
                                 <a class="nav-link collapsed" href="{{ route('laporanpembayaran.index') }}">Laporan Pembayaran</a>
@@ -78,7 +78,7 @@
                         </div>
                         <a class="nav-link" href="{{url('lonjakanpengunjung')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Lonjakan Pengunjung
+                            Total Pengunjung
                         </a>
                     </div>
                 </div>

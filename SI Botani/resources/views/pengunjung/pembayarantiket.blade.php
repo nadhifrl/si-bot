@@ -61,7 +61,14 @@
                         </div>
                     </div>
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/detailtiket">Detail Tiket</a></li>
+                    <div class="dropdown">
+                        <li class="nav-item nav-link js-scroll-trigger">Detail Tiket</li>
+                        <div class="dropdown-content">
+                            <a href="{{route('detailpemesanantiket.index')}}">Detail Pemesanan Tiket</a>
+                            <hr>
+                            <a href="{{route('detailpembayarantiket.index')}}">Detail Pembayaran Tiket</a>
+                        </div>
+                    </div>
                     <li class="sidebar-nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -123,15 +130,6 @@
                                     <label>Tanggal Pemakaian Tiket</label>
                                     <label class="form-control form-group ">{{$pembayarantiket->tanggalpembelian}}</label>
                                 </div>
-                                <!-- <div class="form-group col-md-4">
-                                    <label>Jumlah Tiket</label>
-                                    <label class="form-control form-group  ">{{$pembayarantiket->jumlahtiket}}</label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>Total Pembayaran</label>
-                                    <label class="form-control form-group  ">{{number_format($pembayarantiket->totalharga, 0, ',', '.')}}</label>
-                                    Rp. {{number_format($pembayarantiket->totalharga, 0, ',', '.')}}
-                                </div> -->
                                 <table class="table form-group col-md-9" style="margin-left: 15px;">
                                     <thead class="thead-dark">
                                         <tr>

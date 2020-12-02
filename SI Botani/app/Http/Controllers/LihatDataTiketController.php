@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PembayaranTiket;
+use App\PemesananTiket;
 
 class LihatDataTiketController extends Controller
 {
@@ -46,8 +46,8 @@ class LihatDataTiketController extends Controller
      */
     public function show($id)
     {
-        $pembayaran = PembayaranTiket::find($id);
-        return view('pengunjung.lihatdatatiket', compact('pembayaran'));
+        $pemesanan = PemesananTiket::find($id);
+        return view('pengunjung.lihatdatatiket', compact('pemesanan'));
     }
 
     /**
