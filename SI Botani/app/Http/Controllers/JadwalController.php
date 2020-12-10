@@ -72,6 +72,18 @@ class JadwalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'jadwal' => 'required',
+
+            ],
+            [
+
+                'jadwal.required' => 'Harap isi bidang ini',
+
+            ]
+        );
         $user = Auth::user();
         $pemesanantiket = Jadwal::where('user_id', $user->id);
         $jadwal = Jadwal::find($id);

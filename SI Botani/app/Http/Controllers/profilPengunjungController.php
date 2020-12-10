@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 
-class profilPengunjungController extends Controller
+class ProfilPengunjungController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -59,7 +59,8 @@ class profilPengunjungController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user()->find($id);
+        return view('pengunjung.editprofil')->with('user', $user);
     }
 
     /**
@@ -71,19 +72,31 @@ class profilPengunjungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'email',
-            'alamat' => 'required',
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required',
+                'alamat' => 'required',
+                'nomortelepon' => ['required', 'numeric', 'min:11'],
+            ],
+            [
+                'name.required' => 'Harap isi bidang ini',
+                'nomortelepon.required' => 'Harap isi bidang ini',
+                'nomortelepon.numeric' => 'Harap Berisikan Nomor',
+                'email.required' => 'Harap isi bidang ini',
+                'alamat.required' => 'Harap isi bidang ini',
+                'nomortelepon.min' => 'Minimal harus 11 nomor',
+            ]
+        );
+        $user = Auth::user()->find($id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+            'nomortelepon' => $request->nomortelepon,
         ]);
 
-        User::where('id', $student->id)
-            ->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'alamat' => $request->alamat,
-            ]);
-        return redirect('/profile-pengujung')->with('status', 'Data Berhasil di Ubah');
+        return redirect()->route('profil.index');
     }
 
     /**

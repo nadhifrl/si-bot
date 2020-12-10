@@ -23,7 +23,12 @@
                     @csrf
                     <div class="form-group">
                         <label>Harga Tiket</label>
-                        <input type="text" class="form-control" name="harga" placeholder="Isi Harga Tiket" value="{!! $harga->harga !!}" required>
+                        <input class="form-control  @error('harga') is-invalid @enderror" name="harga" placeholder="Isi Harga Tiket" value="{!! $harga->harga !!}">
+                        @error('harga')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="form-group">

@@ -121,13 +121,18 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <label for="name">Nama</label>
-                                                <input type="text" class="form-control" name="namapemesan" required>
+                                                <input type="text" class="form-control @error('namapemesan') is-invalid @enderror" name="namapemesan">
+                                                @error('namapemesan')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="total_pembayaran">Nomor telepon</label>
-                                                <input type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" required>
+                                                <input class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon">
                                                 @error('nomortelepon')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -137,22 +142,37 @@
                                         </div>
                                         <div class="col-md-12">
                                             <p>Alamat</p>
-                                            <textarea type="text" class="form-control" name="alamat" required></textarea>
+                                            <textarea type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat"></textarea>
+                                            @error('alamat')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="col-md-5" style="padding-top:10px">
                                             <div class="form-group">
                                                 <label>Tanggal Pemakaian Tiket</label>
-                                                <input type="date" class="form-control" name="tanggalpembelian" required>
+                                                <input type="date" class="form-control @error('tanggalpembelian') is-invalid @enderror" name="tanggalpembelian">
+                                                @error('tanggalpembelian')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="col-md-17">
                                                 <div class="form-group">
                                                     <label>Jumlah Tiket</label>
-                                                    <input type="number" step="any" min="1" name="jumlahtiket" id="jumlahtiket" class="form-control" required>
+                                                    <input step="any" min="1" name="jumlahtiket" id="jumlahtiket" class="form-control @error('jumlahtiket') is-invalid @enderror">
+                                                    @error('jumlahtiket')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                                 <!-- @foreach ($harga as $a)
                                                 <input type="number" step="any" name="harga" id="harga" class="form-control" value="{{$a->harga}}" Readonly hidden></input>
                                                 @endforeach -->
-                                                <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly></input>
+                                                <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
 
                                                 <div class="col-md-0">
                                                     <div class="form-group">

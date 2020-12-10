@@ -58,7 +58,7 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <!-- <a class="nav-link collapsed" href="{{ route('harga.index') }}">Harga Tiket</a> -->
+                                <a class="nav-link collapsed" href="{{ route('harga.index') }}">Harga Tiket</a>
                                 <a class="nav-link collapsed" href="{{ route('verifikasi.index') }}">Memverifikasi Data Pembayaran Tiket</a>
                                 <a class="nav-link collapsed" href="{{ route('laporanpemesanan.index') }}">Laporan Pemesanan</a>
                                 <a class="nav-link collapsed" href="{{ route('laporanpembayaran.index') }}">Laporan Pembayaran</a>
@@ -76,9 +76,9 @@
                                 <a class="nav-link collapsed" href="{{ route('jadwal.index') }}">Jadwal</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="{{url('lonjakanpengunjung')}}">
+                        <a class="nav-link" href="{{url('prediksipembeliantiket')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Total Pengunjung
+                            Prediksi Pembelian Tiket
                         </a>
                     </div>
                 </div>

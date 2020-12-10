@@ -97,18 +97,18 @@
     <!-- Projects-->
 
     <section class="projects-section bg-light" id="projects">
+        @foreach ($jadwal as $a)
         <div class="container">
-            @foreach ($jadwal as $a)
             <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
                 <div class="col-lg-12">
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h1 class="text-white">JADWAL</h1>
-                                <hr class="d-none d-lg-block mb-2 ml-0" />
+                                <h1 class="text-white text-center">JADWAL</h1>
+                                <hr>
                                 <div class="card">
                                     <div class="card-body">
-                                        <p class="text-black-30 mb-0">{{$a->jadwal}}</p>
+                                        <h4 class="text-black-30 mb-0">{{$a->jadwal}}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -119,20 +119,11 @@
             @endforeach
             @foreach ($sarana as $item)
             <div class="row align-items-center no-gutters mb-4 mb-lg-5" style="margin-top: 70px">
-                <div class="col-xl-6 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{asset('uploads/'.$item->gambar)}}" alt="" /></div>
-                <div class="col-xl-6 col-lg-5 ">
-                    <div class="featured-text text-center text-lg-left">
+                <div class="col-xl-12 col-lg-9"><img src="{{asset('uploads/'.$item->gambar)}}" alt="" width="100%" />
+                    <div class="col-xl-12 col-lg-5" style="margin-top: 30px;margin-left:-10px">
                         <h1 class="text-center">{{$item->judul}}</h1>
-                        <hr>
-                        <div class="col-xl-30 col-md-90 mx-auto">
-                            <div class="container">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p class="text-black-30 mb-0">{{$item->body}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <hr class="d-none d-lg-block mb-0 ml-0" />
+                        <p class="text-black-30" style="margin-top: 10px;">{{$item->body}}</p>
                     </div>
                 </div>
             </div>

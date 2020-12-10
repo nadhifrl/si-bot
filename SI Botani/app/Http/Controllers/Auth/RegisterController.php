@@ -54,15 +54,25 @@ class RegisterController extends Controller
                 'name' => ['required', 'string', 'max:255', 'unique:users'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'alamat' => ['required', 'string', 'max:255'],
-                'nomortelepon' => ['required', 'min:11', 'max:13'],
+                'nomortelepon' => ['required', 'min:11', 'numeric'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'password_confirmation' => 'required',
             ],
 
             [
+                'name.required' => 'Harap isi bidang ini',
+                'email.required' => 'Harap isi bidang ini',
+                'alamat.required' => 'Harap isi bidang ini',
+                'nomortelepon.required' => 'Harap isi bidang ini',
+                'password.required' => 'Harap isi bidang ini',
+                'password.min' => 'Kata sandi minimal harus 8 karakter.',
+                'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.',
+                'password_confirmation.required' => 'Harap isi bidang ini',
+                'name.required' => 'Harap isi bidang ini',
                 'name.unique' => 'Username sudah terdaftar',
                 'email.unique' => 'E-Mail Address sudah terdaftar',
                 'nomortelepon.min' => 'Minimal harus 11 nomor',
-                'nomortelepon.max' => 'Maksimal harus 13 nomor',
+                'nomortelepon.numeric' => 'Harap Masukkan Nomor',
             ]
         );
     }

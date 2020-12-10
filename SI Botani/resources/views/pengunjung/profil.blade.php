@@ -119,13 +119,13 @@
                                 </div>
                                 <div class="form-group font-weight-bold text-primary">
                                     <label>Alamat</label>
-                                    <label class="form-control form-group font-weight-bold text-primary ">{{$user->alamat}}</label>
+                                    <textarea class="form-control form-group font-weight-bold text-primary ">{{$user->alamat}}</textarea>
                                 </div>
                                 <div class="form-group font-weight-bold text-primary">
                                     <label>Nomor Telepon</label>
                                     <label class="form-control form-group font-weight-bold text-primary ">{{$user->nomortelepon}}</label>
                                 </div>
-
+                                <a href="{{route('profil.edit',$user->id)}}" class="btn btn-primary">Edit Profil</a>
                             </form>
                         </div>
                     </div>

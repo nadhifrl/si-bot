@@ -42,12 +42,23 @@ class PembayaranTiketController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'namarekeningpengirim' => 'required',
-            'nomorrekening' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,bpm,png',
+        $this->validate(
+            $request,
+            [
+                'namarekeningpengirim' => 'required',
+                'nomorrekening' => ['required', 'numeric'],
+                'gambar' => ['mimes:jpg,jpeg,bpm,png', 'required'],
 
-        ]);
+            ],
+            [
+                'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
+                'namarekeningpengirim.required' => 'Harap isi bidang ini',
+                'nomorrekening.required' => 'Harap isi bidang ini',
+                'nomorrekening.numeric' => 'Harap Berisikan Nomor',
+                'gambar.required' => 'Harap isi bidang ini',
+
+            ]
+        );
         // // $user = Auth::user();
         // $pemesanantiket = Tiket::create($request->all());
         // if ($pembayarantiket = Pembayaran::where('pemesanantiket_id', $pemesanantiket->id)->where('status', 'Proses')->first()) {
@@ -70,7 +81,7 @@ class PembayaranTiketController extends Controller
             'status' => "Proses"
         ]);
 
-        return redirect()->route('detailtiket.index');
+        return redirect()->route('detailpembayarantiket.index');
     }
 
 
@@ -111,17 +122,19 @@ class PembayaranTiketController extends Controller
             [
                 'namarekeningpengirim' => 'required',
                 'nomorrekening' => 'required',
-                'gambar' => ['mimes:jpg,jpeg,bpm,png'],
+                'gambar' => ['file', 'mimes:jpg,jpeg,bpm,png', 'required'],
+
+            ],
+            [
+                'gambar.mimes' => 'Harus Gambar Guys',
+                'gambar.file' => 'Harus Gambar Guys',
+                'namarekeningpengirim.required' => 'Harap isi bidang ini',
+                'nomorrekening.required' => 'Harap isi bidang ini',
+                'gambar.required' => 'Harap isi bidang ini',
 
             ]
-            // [
-            //     'gambar.mimes' => 'Minimal harus 11 nomor',
-            // ]
         );
 
-        // if ($pembayarantiket = Pemesanan::where('user_id', $user->id)->where('status', 'Proses')->first()) {
-        //     return redirect()->route('pembayarantiket.index')->with('status', 'Anda memiliki pesanan yang belum dibayar. Mohon bayar pemesanan sebelumnya');
-        // } else {
         $user = Auth::user();
         $pembayarantiket = PemesananTiket::where('user_id', $user->id)->find($id);
         $image = $request->file('gambar')->store('pembayarantiket');

@@ -23,18 +23,33 @@
           @csrf
           <div class="form-group">
             <label>Judul</label>
-            <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{$sarana->judul}}" required>
+            <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" placeholder="Judul" value="{{$sarana->judul}}">
+            @error('judul')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
           <div class="form-group">
-            <label @error('gambar') class="text-danger" @enderror>Gambar @error('gambar')| {{$message}} @enderror</label>
-            <input type="file" class="form-control" name="gambar">
+            <label>Gambar </label>
+            <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar">
+            @error('gambar')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
 
           <div class="form-group">
             <label>Informasi Sarana</label>
-            <textarea name="body" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required>
+            <textarea name="body" class="@error('judul') is-invalid @enderror" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
           {!! $sarana->body !!}
             </textarea>
+            @error('body')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Simpan</button>

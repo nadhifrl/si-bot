@@ -47,13 +47,23 @@ class PemesananTiketController extends Controller
             $request,
             [
                 'namapemesan' => 'required',
-                'nomortelepon' => ['required', 'min:11', 'max:13'],
+                'nomortelepon' => ['required', 'min:11', 'numeric'],
                 'alamat' => 'required',
+                'tanggalpembelian' => 'required',
+                'jumlahtiket' => ['required', 'numeric'],
 
             ],
             [
+
                 'nomortelepon.min' => 'Minimal harus 11 nomor',
-                'nomortelepon.max' => 'Maksimal harus 13 nomor',
+                // 'nomortelepon.max' => 'Maksimal harus 13 nomor',
+                'nomortelepon.numeric' => 'Harap Berisikan Nomor',
+                'nomortelepon.required' => 'Harap isi bidang ini',
+                'alamat.required' => 'Harap isi bidang ini',
+                'tanggalpembelian.required' => 'Harap isi bidang ini',
+                'jumlahtiket.required' => 'Harap isi bidang ini',
+                'namapemesan.required' => 'Harap isi bidang ini',
+                'jumlahtiket.numeric' => 'Harap Berisikan Nomor',
             ]
         );
 

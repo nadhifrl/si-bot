@@ -204,15 +204,25 @@
                                     </div>
                                     <div class="col-md-11" style="margin-top:10px">
                                         <label>Nama Rekening Pengirim</label>
-                                        <input type="text" class="form-control" name="namarekeningpengirim" required>
+                                        <input type="text" class="form-control @error('namarekeningpengirim') is-invalid @enderror" name="namarekeningpengirim">
+                                        @error('namarekeningpengirim')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class=" col-md-6" style="margin-top:10px">
                                         <label>No. Rekening Pengirim</label>
-                                        <input type="number" class="form-control" name="nomorrekening" required>
+                                        <input type="number" class="form-control  @error('nomorrekening') is-invalid @enderror" name="nomorrekening">
+                                        @error('nomorrekening')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="col-md-10" style="margin-top:15px">
                                         <label>Gambar</label>
-                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" required>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar">
                                         @error('gambar')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

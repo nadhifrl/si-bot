@@ -39,18 +39,27 @@ class SaranaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'judul' => 'required',
-            'body' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,bpm,png',
+        $this->validate(
+            $request,
+            [
+                'judul' => 'required',
+                'body' => 'required',
+                'gambar' => ['mimes:jpg,jpeg,bpm,png', 'required'],
+            ],
+            [
+                'judul.required' => 'Harap isi bidang ini',
+                'body.required' => 'Harap isi bidang ini',
+                'gambar.required' => 'Harap isi bidang ini',
+                'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
+            ]
+        );
 
-        ]);
         $image = $request->file('gambar')->store('sarana');
         $user = Auth::user();
         $pemesanantiket = Sarana::where('user_id', $user->id);
         Sarana::create([
             'user_id' => $user->id,
-            'judul' => \Str::slug($request->judul),
+            'judul' => ($request->judul),
             'body' => $request->body,
             'gambar' => $image
         ]);
@@ -90,12 +99,19 @@ class SaranaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'judul' => 'required',
-            'body' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,bpm,png',
-
-        ]);
+        $this->validate(
+            $request,
+            [
+                'judul' => 'required',
+                'body' => 'required',
+                'gambar' => ['mimes:jpg,jpeg,bpm,png'],
+            ],
+            [
+                'judul.required' => 'Harap isi bidang ini',
+                'body.required' => 'Harap isi bidang ini',
+                'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
+            ]
+        );
 
         $user = Auth::user();
         $pemesanantiket = Sarana::where('user_id', $user->id);
@@ -104,7 +120,7 @@ class SaranaController extends Controller
             //Storage::delete($sarana->gambar);
             $sarana->update([
                 'user_id' => $user->id,
-                'judul' => \Str::slug($request->judul),
+                'judul' => ($request->judul),
                 'body' => $request->body,
                 //'gambar'=>$request->file('gambar')->store('sarana'),
             ]);

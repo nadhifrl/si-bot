@@ -72,6 +72,20 @@ class HargaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate(
+            $request,
+            [
+                'harga' => ['required', 'numeric'],
+
+            ],
+            [
+
+                'harga.numeric' => 'Harap Berisikan Nomor',
+                'harga.required' => 'Harap isi bidang ini',
+            ]
+        );
+
         $harga = Harga::find($id);
         $user = Auth::user();
         $pemesanantiket = Harga::where('user_id', $user->id);

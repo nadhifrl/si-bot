@@ -23,7 +23,12 @@
           @csrf
           <div class="form-group">
             <label>Jadwal</label>
-            <textarea type="text" class="form-control" name="jadwal" placeholder="Isi Jadwal" required>{!! $jadwal->jadwal !!}</textarea>
+            <textarea type="text" class="form-control @error('jadwal') is-invalid @enderror" name="jadwal" placeholder="Isi Jadwal">{!! $jadwal->jadwal !!}</textarea>
+            @error('jadwal')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
 
           <div class="form-group">

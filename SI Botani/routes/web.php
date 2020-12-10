@@ -34,13 +34,12 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     Route::resource('verifikasi', 'VerifikasiController');
     Route::resource('laporanpemesanan', 'LaporanPemesananController');
     Route::resource('laporanpembayaran', 'LaporanPembayaranController');
-    Route::resource('lonjakanpengunjung', 'LonjakanPengunjungController');
-    Route::get('/lonjakanpengunjung', 'LonjakanPengunjungController@peramalan');
+    Route::get('/prediksipembeliantiket', 'PrediksiPembelianTiketController@prediksipembeliantiket');
 });
 
 Route::group(['middleware' => ['auth', 'cekrole:pengunjung']], function () {
     Route::get('/pengunjung', 'HomeController@pengunjung');
-    Route::get('/profil', 'profilPengunjungController@index');
+    Route::resource('profil', 'ProfilPengunjungController');
     Route::get('/informasi', 'InformasiController@index');
     // Route::get('/pemesanantiket', 'PemesananTiketController@index');
     // Route::get('/pemesanantiket/create', 'PemesananTiketController@create');
