@@ -50,7 +50,7 @@ class PemesananTiketController extends Controller
                 'nomortelepon' => ['required', 'min:11', 'numeric'],
                 'alamat' => 'required',
                 'tanggalpembelian' => 'required',
-                'jumlahtiket' => ['required', 'numeric'],
+                'jumlahtiket' => ['required', 'numeric', 'min:1'],
 
             ],
             [
@@ -64,6 +64,7 @@ class PemesananTiketController extends Controller
                 'jumlahtiket.required' => 'Harap isi bidang ini',
                 'namapemesan.required' => 'Harap isi bidang ini',
                 'jumlahtiket.numeric' => 'Harap Berisikan Nomor',
+                'jumlahtiket.min' => 'Minimal harus memasukkan 1 jumlah tiket',
             ]
         );
 

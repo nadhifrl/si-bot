@@ -121,16 +121,16 @@ class PembayaranTiketController extends Controller
             $request,
             [
                 'namarekeningpengirim' => 'required',
-                'nomorrekening' => 'required',
+                'nomorrekening' => ['required', 'numeric'],
                 'gambar' => ['file', 'mimes:jpg,jpeg,bpm,png', 'required'],
 
             ],
             [
-                'gambar.mimes' => 'Harus Gambar Guys',
-                'gambar.file' => 'Harus Gambar Guys',
+                'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
                 'namarekeningpengirim.required' => 'Harap isi bidang ini',
                 'nomorrekening.required' => 'Harap isi bidang ini',
                 'gambar.required' => 'Harap isi bidang ini',
+                'jumlahtiket.numeric' => 'Harap Berisikan Nomor',
 
             ]
         );

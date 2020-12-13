@@ -169,10 +169,10 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <!-- @foreach ($harga as $a)
+                                                @foreach ($harga as $a)
                                                 <input type="number" step="any" name="harga" id="harga" class="form-control" value="{{$a->harga}}" Readonly hidden></input>
-                                                @endforeach -->
-                                                <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input>
+                                                @endforeach
+                                                <!-- <input type="number" step="any" min="20000" name="harga" id="harga" class="form-control" value="20000" Readonly hidden></input> -->
 
                                                 <div class="col-md-0">
                                                     <div class="form-group">

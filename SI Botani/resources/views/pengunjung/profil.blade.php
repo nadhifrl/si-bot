@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="form-group font-weight-bold text-primary">
                                     <label>Alamat</label>
-                                    <textarea class="form-control form-group font-weight-bold text-primary ">{{$user->alamat}}</textarea>
+                                    <textarea class="form-control form-group font-weight-bold text-primary " readonly>{{$user->alamat}}</textarea>
                                 </div>
                                 <div class="form-group font-weight-bold text-primary">
                                     <label>Nomor Telepon</label>
