@@ -28,8 +28,8 @@
                         @foreach ($pemesanan as $item)
                         <tr>
                             <th>{{( $loop->iteration)}}</th>
-                            <td>{{str_limit($item->name, 10, '...')}}</td>
-                            <td>{{str_limit($item->namapemesan, 10, '...')}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{str_limit($item->namapemesan, 20, '...')}}</td>
                             <td>{{str_limit($item->nomortelepon, 6, '...')}}</td>
                             <td>{{str_limit($item->alamat, 6, '...')}}</td>
                             <td>{{$item->tanggalpembelian}}</td>

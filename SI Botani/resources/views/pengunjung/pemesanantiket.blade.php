@@ -152,12 +152,16 @@
                                         <div class="col-md-5" style="padding-top:10px">
                                             <div class="form-group">
                                                 <label>Tanggal Pemakaian Tiket</label>
-                                                <input type="date" class="form-control @error('tanggalpembelian') is-invalid @enderror" name="tanggalpembelian">
+                                                <input type="date" class="form-control" name="tanggalpembelian" min="{{$tanggal}}"  required>
                                                 @error('tanggalpembelian')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                                 @enderror
+                                            </div>
+                                            <div class="col-md-11" style="margin-top:10px">
+                                                <!-- <label>ID</label> -->
+                                                
                                             </div>
                                             <div class="col-md-17">
                                                 <div class="form-group">

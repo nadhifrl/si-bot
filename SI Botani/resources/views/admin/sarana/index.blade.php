@@ -29,9 +29,9 @@
             @foreach ($sarana as $item)
             <tr>
               <td>{{( $loop->iteration)}}</td>
-              <td>{{$item->judul}}</td>
+              <td>{{str_limit($item->judul, 20, '...')}}</td>
               <td><img src="{{asset('uploads/'.$item->gambar)}}" width="50px" height="50px"></td>
-              <td>{{str_limit($item->body, 60, '...')}}</td>
+              <td>{{str_limit($item->body, 40, '...')}}</td>
               <td>
                 <a href="{{route('sarana.show',$item->id)}}" class="btn btn-success">Detail</a>
                 <a href="{{route('sarana.edit',$item->id)}}" class="btn btn-primary">Edit</a>

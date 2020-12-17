@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\PemesananTiket;
 use App\Harga;
 use Auth;
+use Illuminate\Support\Carbon;
 
 class PemesananTiketController extends Controller
 {
@@ -19,10 +20,11 @@ class PemesananTiketController extends Controller
         // return view('pengunjung.pemesanantiket');
         $user = Auth::user();
         $harga = Harga::all();
+        $tanggal = Carbon::now();
         $pemesanantiket = PemesananTiket::where('user_id', $user->id)->where('status', 'Menunggu')->first();
         // dd($pembayarantiket);
         // dd($pembayarantiket);
-        return view('pengunjung.pemesanantiket', compact('harga'))->with('pemesanantiket', $pemesanantiket);
+        return view('pengunjung.pemesanantiket', compact('harga','tanggal'))->with('pemesanantiket', $pemesanantiket);
     }
 
     /**
@@ -49,18 +51,20 @@ class PemesananTiketController extends Controller
                 'namapemesan' => 'required',
                 'nomortelepon' => ['required', 'min:11', 'numeric'],
                 'alamat' => 'required',
+
                 'tanggalpembelian' => 'required',
                 'jumlahtiket' => ['required', 'numeric', 'min:1'],
+
 
             ],
             [
 
                 'nomortelepon.min' => 'Minimal harus 11 nomor',
-                // 'nomortelepon.max' => 'Maksimal harus 13 nomor',
                 'nomortelepon.numeric' => 'Harap Berisikan Nomor',
                 'nomortelepon.required' => 'Harap isi bidang ini',
                 'alamat.required' => 'Harap isi bidang ini',
                 'tanggalpembelian.required' => 'Harap isi bidang ini',
+                // 'tanggalpembelian.after' => 'Tanggal yang dipilih, minimal harus tanggal hari ini',
                 'jumlahtiket.required' => 'Harap isi bidang ini',
                 'namapemesan.required' => 'Harap isi bidang ini',
                 'jumlahtiket.numeric' => 'Harap Berisikan Nomor',

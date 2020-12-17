@@ -21,7 +21,7 @@ class CreatePembayarantiketTable extends Migration
             $table->string('bank')->nullable();
             $table->string('namarekeningpengirim')->nullable();
             $table->char('nomorrekening')->nullable();
-            $table->text('gambar')->nullable();
+            $table->string('gambar')->nullable();
             $table->enum('status', ['Proses', 'Sukses', 'Gagal']);
             $table->timestamps();
         });

@@ -12,26 +12,26 @@
                 <div class="col-xl-12" style="margin-left: auto; margin-right:auto">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{date('F', strtotime($month))}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{\Carbon\Carbon::parse($month)->translatedFormat('F')}}</div>
                             <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Total : {{$count}}</div>
                         </div>
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
-                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{date('F', strtotime($month1))}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{\Carbon\Carbon::parse($month1)->translatedFormat('F')}}</div>
                             <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Total : {{$count1}}</div>
                         </div>
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
-                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{date('F', strtotime($month2))}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{\Carbon\Carbon::parse($month2)->translatedFormat('F')}}</div>
                             <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Total : {{$count2}}</div>
                         </div>
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
-                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{date('F', strtotime($month3))}}</div>
-                            <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Total : {{$count2}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-capitalize text-gray-800">Bulan {{\Carbon\Carbon::parse($month3)->translatedFormat('F')}}</div>
+                            <div class="text font-weight-bold text-success mt-3 text-uppercase mb-1">Prediksi Total : {{intVal($wma)}}</div>
                         </div>
                     </div>
                 </div>
