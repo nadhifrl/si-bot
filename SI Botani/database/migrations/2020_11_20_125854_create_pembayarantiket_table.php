@@ -18,10 +18,10 @@ class CreatePembayarantiketTable extends Migration
             $table->unsignedBigInteger('pemesanantiket_id');
             $table->foreign('pemesanantiket_id')->references('id')->on('pemesanantiket');
             // $table->integer('user_id');
-            $table->string('bank')->nullable();
-            $table->string('namarekeningpengirim')->nullable();
-            $table->char('nomorrekening')->nullable();
-            $table->string('gambar')->nullable();
+            $table->string('bank', 100)->nullable();
+            $table->string('namarekeningpengirim', 100)->nullable();
+            $table->char('nomorrekening', 25)->nullable();
+            $table->string('gambar', 100)->nullable();
             $table->enum('status', ['Proses', 'Sukses', 'Gagal']);
             $table->timestamps();
         });

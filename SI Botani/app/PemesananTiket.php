@@ -19,4 +19,9 @@ class PemesananTiket extends Model
     {
         return $this->hasMany('App\User');
     }
+
+    public function harga()
+    {
+        return $this->belongsTo('App\Harga');
+    }
 }

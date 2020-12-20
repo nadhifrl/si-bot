@@ -45,16 +45,18 @@ class PembayaranTiketController extends Controller
         $this->validate(
             $request,
             [
-                'namarekeningpengirim' => 'required',
-                'nomorrekening' => ['required', 'numeric'],
-                'gambar' => ['mimes:jpg,jpeg,bpm,png', 'required'],
+                'namarekeningpengirim' => ['required','max:100'],
+                'nomorrekening' => ['required', 'min:10','max:25'],
+                'gambar' => ['mimes:jpg,jpeg,bmp,png', 'required'],
 
             ],
             [
                 'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
                 'namarekeningpengirim.required' => 'Harap isi bidang ini',
+                'namarekeningpengirim.max' => 'Maksimal harus 100 huruf',
                 'nomorrekening.required' => 'Harap isi bidang ini',
-                'nomorrekening.numeric' => 'Harap Berisikan Nomor',
+                'nomorrekening.max' => 'Maksimal harus 25 nomor',
+                'nomorrekening.min' => 'Maksimal harus 10 nomor',
                 'gambar.required' => 'Harap isi bidang ini',
 
             ]

@@ -57,7 +57,7 @@
                             <label for="nomortelepon" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Telepon') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nomortelepon" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" value="{{ old('nomortelepon') }}" autocomplete="nomortelepon" autofocus>
+                                <input id="nomortelepon" type="number" class="form-control @error('nomortelepon') is-invalid @enderror"  name="nomortelepon" value="{{ old('nomortelepon') }}" autocomplete="nomortelepon" autofocus>
 
                                 @error('nomortelepon')
                                 <span class="invalid-feedback" role="alert">

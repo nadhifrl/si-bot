@@ -48,27 +48,30 @@ class PemesananTiketController extends Controller
         $this->validate(
             $request,
             [
-                'namapemesan' => 'required',
-                'nomortelepon' => ['required', 'min:11', 'numeric'],
-                'alamat' => 'required',
+                'namapemesan' => ['required','max:100'],
+                'nomortelepon' => ['required', 'min:11','max:13' ],
+                'alamat' => ['required','max:100'],
 
-                'tanggalpembelian' => 'required',
-                'jumlahtiket' => ['required', 'numeric', 'min:1'],
+                'tanggalpembelian' => 'required|after:yesterday',
+                'jumlahtiket' => ['required', 'numeric', 'min:1', 'max:100'],
 
 
             ],
             [
 
                 'nomortelepon.min' => 'Minimal harus 11 nomor',
-                'nomortelepon.numeric' => 'Harap Berisikan Nomor',
+                 'nomortelepon.max' => 'Maksimal harus 13 nomor',
                 'nomortelepon.required' => 'Harap isi bidang ini',
                 'alamat.required' => 'Harap isi bidang ini',
+                'alamat.max' => 'Maksimal harus 100 karakter',
                 'tanggalpembelian.required' => 'Harap isi bidang ini',
-                // 'tanggalpembelian.after' => 'Tanggal yang dipilih, minimal harus tanggal hari ini',
+                'tanggalpembelian.after' => 'Tanggal yang dipilih, minimal harus tanggal hari ini',
                 'jumlahtiket.required' => 'Harap isi bidang ini',
                 'namapemesan.required' => 'Harap isi bidang ini',
+                'namapemesan.max' => 'Maksimal harus 100 huruf',
                 'jumlahtiket.numeric' => 'Harap Berisikan Nomor',
                 'jumlahtiket.min' => 'Minimal harus memasukkan 1 jumlah tiket',
+                 'jumlahtiket.max' => 'Maksimal harus memasukkan 100 jumlah tiket',
             ]
         );
 

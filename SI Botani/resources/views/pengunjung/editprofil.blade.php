@@ -141,7 +141,7 @@
 
                                 <div class=" form-group font-weight-bold text-primary">
                                     <label>Nomor Telepon</label>
-                                    <input type="text" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" placeholder="Nomor Telepon" value="{{$user->nomortelepon}}">
+                                    <input type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" placeholder="Nomor Telepon" value="{{$user->nomortelepon}}">
                                     @error('nomortelepon')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

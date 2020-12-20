@@ -76,11 +76,13 @@ class HargaController extends Controller
         $this->validate(
             $request,
             [
-                'harga' => ['required', 'numeric'],
+                'harga' => ['required', 'numeric', 'min:10000', 'max:50000'],
 
             ],
             [
 
+                'harga.min' => 'Harga yang dimasukkan minimal 10000 ',
+                'harga.max' => 'Harga yang dimasukkan maksimal 50000 ',
                 'harga.numeric' => 'Harap Berisikan Nomor',
                 'harga.required' => 'Harap isi bidang ini',
             ]

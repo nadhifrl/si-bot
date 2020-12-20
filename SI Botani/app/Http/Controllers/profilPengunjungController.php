@@ -74,18 +74,23 @@ class ProfilPengunjungController extends Controller
     {
         $request->validate(
             [
-                'name' => 'required',
-                'email' => 'required',
-                'alamat' => 'required',
-                'nomortelepon' => ['required', 'numeric', 'min:11'],
+                'name' => ['required','max:50'],
+                'email' => ['required','max:50'],
+                'alamat' => ['required','max:100'],
+                'nomortelepon' => ['required',  'min:11..', 'max:13'],
             ],
             [
                 'name.required' => 'Harap isi bidang ini',
+                'name.max' => 'Maksimal harus 50 huruf',
                 'nomortelepon.required' => 'Harap isi bidang ini',
                 'nomortelepon.numeric' => 'Harap Berisikan Nomor',
-                'email.required' => 'Harap isi bidang ini',
-                'alamat.required' => 'Harap isi bidang ini',
                 'nomortelepon.min' => 'Minimal harus 11 nomor',
+                'nomortelepon.max' => 'Maksimal harus 13 nomor',
+                'email.required' => 'Harap isi bidang ini',
+                'email.max' => 'Maksimal harus 50 karakter',
+                'alamat.required' => 'Harap isi bidang ini',
+                 'alamat.max' => 'Maksimal harus 100 karakter',
+                
             ]
         );
         $user = Auth::user()->find($id);

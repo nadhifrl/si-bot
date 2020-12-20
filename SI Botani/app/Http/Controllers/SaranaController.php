@@ -42,12 +42,13 @@ class SaranaController extends Controller
         $this->validate(
             $request,
             [
-                'judul' => 'required',
+                 'judul' => ['required','max:100'],
                 'body' => 'required',
-                'gambar' => ['mimes:jpg,jpeg,bpm,png', 'required'],
+                'gambar' => ['mimes:jpg,jpeg,bmp,png', 'required'],
             ],
             [
                 'judul.required' => 'Harap isi bidang ini',
+                 'judul.max' => 'Maksimal harus 100 karakter',
                 'body.required' => 'Harap isi bidang ini',
                 'gambar.required' => 'Harap isi bidang ini',
                 'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
@@ -102,12 +103,13 @@ class SaranaController extends Controller
         $this->validate(
             $request,
             [
-                'judul' => 'required',
+                'judul' => ['required','max:100'],
                 'body' => 'required',
                 'gambar' => ['mimes:jpg,jpeg,bpm,png'],
             ],
             [
                 'judul.required' => 'Harap isi bidang ini',
+                'judul.max' => 'Maksimal harus 100 karakter',
                 'body.required' => 'Harap isi bidang ini',
                 'gambar.mimes' => 'Harus Berisikan Gambar dengan format : jpg/jpeg/bpm/png ',
             ]

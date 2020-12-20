@@ -17,9 +17,9 @@ class CreatePemesanantiketTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('namapemesan')->nullable();
-            $table->char('nomortelepon')->nullable();
-            $table->string('alamat')->nullable();
+            $table->string('namapemesan', 100)->nullable();
+            $table->char('nomortelepon', 13)->nullable();
+            $table->string('alamat', 100)->nullable();
             $table->date('tanggalpembelian')->nullable();
             $table->integer('jumlahtiket')->nullable();
             $table->integer('totalharga')->nullable();

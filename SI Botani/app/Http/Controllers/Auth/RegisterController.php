@@ -51,25 +51,32 @@ class RegisterController extends Controller
         return Validator::make(
             $data,
             [
-                'name' => ['required', 'string', 'max:255', 'unique:users'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'alamat' => ['required', 'string', 'max:255'],
-                'nomortelepon' => ['required', 'min:11', 'numeric'],
-                'password' => ['required', 'string', 'confirmed'],
+                'name' => ['required', 'string', 'max:50', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+                'alamat' => ['required', 'string', 'max:100'],
+                'nomortelepon' => ['required','min:11' , 'max:13'],
+                'password' => ['required', 'string','max:60', 'confirmed'],
             ],
 
             [
                 'name.required' => 'Harap isi bidang ini',
+                'name.max' => 'Maksimal harus 50 huruf',
                 'email.required' => 'Harap isi bidang ini',
+                'email.max' => 'Maksimal harus 50 karakter',
                 'alamat.required' => 'Harap isi bidang ini',
+                'alamat.max' => 'Maksimal harus 100 karakter',
                 'nomortelepon.required' => 'Harap isi bidang ini',
+                'nomortelepon.numeric' => 'Harap Masukkan Nomor',
+                'nomortelepon.min' => 'Minimal harus 11 nomor',
+                'nomortelepon.max' => 'Maksimal harus 13 nomor',
                 'password.required' => 'Harap isi bidang ini',
+                'password.max' => 'Maksimal harus 60 karakter',
                 'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.',
                 'name.required' => 'Harap isi bidang ini',
                 'name.unique' => 'Username sudah terdaftar',
                 'email.unique' => 'E-Mail Address sudah terdaftar',
-                'nomortelepon.min' => 'Minimal harus 11 nomor',
-                'nomortelepon.numeric' => 'Harap Masukkan Nomor',
+                
+                
             ]
         );
     }

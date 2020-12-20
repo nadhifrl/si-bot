@@ -213,7 +213,7 @@
                                     </div>
                                     <div class=" col-md-6" style="margin-top:10px">
                                         <label>No. Rekening Pengirim</label>
-                                        <input type="text" class="form-control  @error('nomorrekening') is-invalid @enderror" name="nomorrekening">
+                                        <input type="number" class="form-control  @error('nomorrekening') is-invalid @enderror" name="nomorrekening">
                                         @error('nomorrekening')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

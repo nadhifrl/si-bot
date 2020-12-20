@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="form-group font-weight-bold text-primary">
                                     <label>Nomor Telepon</label>
-                                    <label class="form-control form-group font-weight-bold text-primary ">{{$user->nomortelepon}}</label>
+                                    <label  class="form-control form-group font-weight-bold text-primary ">{{$user->nomortelepon}}</label>
                                 </div>
                                 <a href="{{route('profil.edit',$user->id)}}" class="btn btn-primary">Edit Profil</a>
                             </form>

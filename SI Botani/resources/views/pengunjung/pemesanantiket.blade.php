@@ -132,7 +132,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="total_pembayaran">Nomor telepon</label>
-                                                <input class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon">
+                                                <input type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon">
                                                 @error('nomortelepon')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -152,7 +152,7 @@
                                         <div class="col-md-5" style="padding-top:10px">
                                             <div class="form-group">
                                                 <label>Tanggal Pemakaian Tiket</label>
-                                                <input type="date" class="form-control" name="tanggalpembelian" min="{{$tanggal}}"  required>
+                                                <input type="date" class="form-control @error('tanggalpembelian') is-invalid @enderror" name="tanggalpembelian" >
                                                 @error('tanggalpembelian')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

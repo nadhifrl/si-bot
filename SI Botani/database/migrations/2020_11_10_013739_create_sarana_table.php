@@ -17,9 +17,9 @@ class CreateSaranaTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('judul');
+            $table->string('judul', 100);
             $table->text('body');
-            $table->string('gambar');
+            $table->string('gambar', 100);
             $table->timestamps();
         });
     }
