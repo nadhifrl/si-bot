@@ -49,7 +49,7 @@
                 <div class="col-xl-3 col-lg-2">
                     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
                         <div class="header__logo" style="margin-left:-30px;margin-top:-30px">
-                            <img src="img/Logo-Botani-1.png" width="100px" height:"80px" alt="">
+                            <img src="img/logo_sibot.jpeg" width="100px" height:"80px" alt="">
                     </a>
                 </div>
                 </a>
